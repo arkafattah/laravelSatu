@@ -1,0 +1,22 @@
+{
+    "sourceFile": "database/seeders/PegawaiSeeder.php",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 1,
+            "patches": [
+                {
+                    "date": 1704806610974,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1705840660220,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,18 +0,0 @@\n-<?php\n-\n-namespace Database\\Seeders;\n-\n-use App\\Models\\Pegawai;\n-use Illuminate\\Database\\Console\\Seeds\\WithoutModelEvents;\n-use Illuminate\\Database\\Seeder;\n-\n-class PegawaiSeeder extends Seeder\n-{\n-    /**\n-     * Run the database seeds.\n-     */\n-    public function run(): void\n-    {\n-        Pegawai::factory(5)->create();\n-    }\n-}\n\\ No newline at end of file\n"
+                }
+            ],
+            "date": 1704806610974,
+            "name": "Commit-0",
+            "content": "<?php\n\nnamespace Database\\Seeders;\n\nuse App\\Models\\Pegawai;\nuse Illuminate\\Database\\Console\\Seeds\\WithoutModelEvents;\nuse Illuminate\\Database\\Seeder;\n\nclass PegawaiSeeder extends Seeder\n{\n    /**\n     * Run the database seeds.\n     */\n    public function run(): void\n    {\n        Pegawai::factory(5)->create();\n    }\n}\n"
+        }
+    ]
+}

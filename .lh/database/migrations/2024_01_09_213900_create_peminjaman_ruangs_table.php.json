@@ -1,0 +1,18 @@
+{
+    "sourceFile": "database/migrations/2024_01_09_213900_create_peminjaman_ruangs_table.php",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 0,
+            "patches": [
+                {
+                    "date": 1704836390508,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                }
+            ],
+            "date": 1704836390508,
+            "name": "Commit-0",
+            "content": "<?php\n\nuse Illuminate\\Database\\Migrations\\Migration;\nuse Illuminate\\Database\\Schema\\Blueprint;\nuse Illuminate\\Support\\Facades\\Schema;\n\nreturn new class extends Migration\n{\n    /**\n     * Run the migrations.\n     */\n    public function up(): void\n    {\n        Schema::create('peminjaman_ruangs', function (Blueprint $table) {\n            $table->id();\n            $table->unsignedBigInteger('user_id');\n            $table->unsignedBigInteger('ruang_id');\n            $table->string('kegiatan');\n            $table->time('mulai');\n            $table->time('selesai');\n            $table->date('tanggal');\n            $table->string('status');\n            $table->timestamps();\n\n            $table->foreign('user_id')->references('id')->on('users');\n            $table->foreign('ruang_id')->references('id')->on('ruangs');\n        });\n    }\n\n    /**\n     * Reverse the migrations.\n     */\n    public function down(): void\n    {\n        Schema::dropIfExists('peminjaman_ruangs');\n    }\n};\n"
+        }
+    ]
+}

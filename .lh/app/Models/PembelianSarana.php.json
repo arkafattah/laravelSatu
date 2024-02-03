@@ -1,0 +1,42 @@
+{
+    "sourceFile": "app/Models/PembelianSarana.php",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 6,
+            "patches": [
+                {
+                    "date": 1705405630113,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1705405801183,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -11,9 +11,10 @@\n \n     protected $fillable = [\n         'user_id',\n         'kelompok_id',\n-        'sarana_id',\n+        'sarana',\n+        'spesifikasi',\n         'harga',\n         'keterangan',\n         'jumlah',\n         'Paraf',\n@@ -27,9 +28,5 @@\n     public function kelompok()\n     {\n         return $this->belongsTo(Kelompok::class, 'kelompok_id', 'id');\n     }\n-    public function sarana()\n-    {\n-        return $this->belongsTo(Sarana::class, 'sarana_id', 'id');\n-    }\n }\n"
+                },
+                {
+                    "date": 1705406359513,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,32 @@\n+<?php\n+\n+namespace App\\Models;\n+\n+use Illuminate\\Database\\Eloquent\\Factories\\HasFactory;\n+use Illuminate\\Database\\Eloquent\\Model;\n+\n+class PembelianSarana extends Model\n+{\n+    use HasFactory;\n+\n+    protected $fillable = [\n+        'user_id',\n+        'kelompok_id',\n+        'sarana',\n+        'spesifikasi',\n+        'harga',\n+        'keterangan',\n+        'jumlah',\n+        'Paraf',\n+        'tanggal',\n+        'status',\n+    ];\n+    public function users()\n+    {\n+        return $this->belongsTo(User::class, 'user_id', 'id');\n+    }\n+    public function kelompok()\n+    {\n+        return $this->belongsTo(Kelompok::class, 'kelompok_id', 'id');\n+    }\n+}\n"
+                },
+                {
+                    "date": 1705450300582,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -29,36 +29,4 @@\n     {\n         return $this->belongsTo(Kelompok::class, 'kelompok_id', 'id');\n     }\n }\n-<?php\n-\n-namespace App\\Models;\n-\n-use Illuminate\\Database\\Eloquent\\Factories\\HasFactory;\n-use Illuminate\\Database\\Eloquent\\Model;\n-\n-class PembelianSarana extends Model\n-{\n-    use HasFactory;\n-\n-    protected $fillable = [\n-        'user_id',\n-        'kelompok_id',\n-        'sarana',\n-        'spesifikasi',\n-        'harga',\n-        'keterangan',\n-        'jumlah',\n-        'Paraf',\n-        'tanggal',\n-        'status',\n-    ];\n-    public function users()\n-    {\n-        return $this->belongsTo(User::class, 'user_id', 'id');\n-    }\n-    public function kelompok()\n-    {\n-        return $this->belongsTo(Kelompok::class, 'kelompok_id', 'id');\n-    }\n-}\n"
+                },
+                {
+                    "date": 1705467098861,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,32 +1,1 @@\n-<?php\n \n-namespace App\\Models;\n-\n-use Illuminate\\Database\\Eloquent\\Factories\\HasFactory;\n-use Illuminate\\Database\\Eloquent\\Model;\n-\n-class PembelianSarana extends Model\n-{\n-    use HasFactory;\n-\n-    protected $fillable = [\n-        'user_id',\n-        'kelompok_id',\n-        'sarana',\n-        'spesifikasi',\n-        'harga',\n-        'keterangan',\n-        'jumlah',\n-        'Paraf',\n-        'tanggal',\n-        'status',\n-    ];\n-    public function users()\n-    {\n-        return $this->belongsTo(User::class, 'user_id', 'id');\n-    }\n-    public function kelompok()\n-    {\n-        return $this->belongsTo(Kelompok::class, 'kelompok_id', 'id');\n-    }\n-}\n"
+                },
+                {
+                    "date": 1706069571924,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -4,9 +4,9 @@\n \n use Illuminate\\Database\\Eloquent\\Factories\\HasFactory;\n use Illuminate\\Database\\Eloquent\\Model;\n \n-class PembelianSarpras extends Model\n+class PembelianSarana extends Model\n {\n     use HasFactory;\n     protected $fillable = [\n         'user_id',\n"
+                },
+                {
+                    "date": 1706072336377,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -9,9 +9,9 @@\n {\n     use HasFactory;\n     protected $fillable = [\n         'user_id',\n-        'nama',\n+        'sarana_id',\n         'katalog',\n         'keterangan',\n         'tanggal',\n         'status',\n"
+                }
+            ],
+            "date": 1705405630113,
+            "name": "Commit-0",
+            "content": "<?php\n\nnamespace App\\Models;\n\nuse Illuminate\\Database\\Eloquent\\Factories\\HasFactory;\nuse Illuminate\\Database\\Eloquent\\Model;\n\nclass PembelianSarana extends Model\n{\n    use HasFactory;\n\n    protected $fillable = [\n        'user_id',\n        'kelompok_id',\n        'sarana_id',\n        'harga',\n        'keterangan',\n        'jumlah',\n        'Paraf',\n        'tanggal',\n        'status',\n    ];\n    public function users()\n    {\n        return $this->belongsTo(User::class, 'user_id', 'id');\n    }\n    public function kelompok()\n    {\n        return $this->belongsTo(Kelompok::class, 'kelompok_id', 'id');\n    }\n    public function sarana()\n    {\n        return $this->belongsTo(Sarana::class, 'sarana_id', 'id');\n    }\n}\n"
+        }
+    ]
+}

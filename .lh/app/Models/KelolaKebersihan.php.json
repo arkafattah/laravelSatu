@@ -1,0 +1,42 @@
+{
+    "sourceFile": "app/Models/KelolaKebersihan.php",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 6,
+            "patches": [
+                {
+                    "date": 1705157962043,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1705158441134,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -11,9 +11,8 @@\n \n     protected $fillable = [\n         'user_id',\n         'petugas_id',\n-        'kegiatan',\n         'Keluhan',\n         'Saran',\n         'tanggal',\n         'status',\n"
+                },
+                {
+                    "date": 1705158471150,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -11,10 +11,10 @@\n \n     protected $fillable = [\n         'user_id',\n         'petugas_id',\n-        'Keluhan',\n-        'Saran',\n+        'keluhan',\n+        'saran',\n         'tanggal',\n         'status',\n     ];\n     public function users()\n"
+                },
+                {
+                    "date": 1705191934000,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -22,7 +22,7 @@\n         return $this->belongsTo(User::class, 'user_id', 'id');\n     }\n     public function petugas_kebersihan()\n     {\n-        return $this->belongsTo(PetugasKebersihan::class, 'petugas_id', 'id');\n+        return $this->belongsTo(PetugasKebersihan::class, 'petugas_kebersihan', 'id');\n     }\n }\n"
+                },
+                {
+                    "date": 1705192042804,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -10,9 +10,9 @@\n     use HasFactory;\n \n     protected $fillable = [\n         'user_id',\n-        'petugas_id',\n+        'petugas_kebersihan',\n         'keluhan',\n         'saran',\n         'tanggal',\n         'status',\n"
+                },
+                {
+                    "date": 1705194858950,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -20,9 +20,9 @@\n     public function users()\n     {\n         return $this->belongsTo(User::class, 'user_id', 'id');\n     }\n-    public function petugas_kebersihan()\n+    public function petugas_kebersihans()\n     {\n         return $this->belongsTo(PetugasKebersihan::class, 'petugas_kebersihan', 'id');\n     }\n }\n"
+                },
+                {
+                    "date": 1705194899587,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -20,9 +20,9 @@\n     public function users()\n     {\n         return $this->belongsTo(User::class, 'user_id', 'id');\n     }\n-    public function petugas_kebersihans()\n+    public function petugas_kebersihan()\n     {\n         return $this->belongsTo(PetugasKebersihan::class, 'petugas_kebersihan', 'id');\n     }\n }\n"
+                }
+            ],
+            "date": 1705157962043,
+            "name": "Commit-0",
+            "content": "<?php\n\nnamespace App\\Models;\n\nuse Illuminate\\Database\\Eloquent\\Factories\\HasFactory;\nuse Illuminate\\Database\\Eloquent\\Model;\n\nclass KelolaKebersihan extends Model\n{\n    use HasFactory;\n\n    protected $fillable = [\n        'user_id',\n        'petugas_id',\n        'kegiatan',\n        'Keluhan',\n        'Saran',\n        'tanggal',\n        'status',\n    ];\n    public function users()\n    {\n        return $this->belongsTo(User::class, 'user_id', 'id');\n    }\n    public function petugas_kebersihan()\n    {\n        return $this->belongsTo(PetugasKebersihan::class, 'petugas_id', 'id');\n    }\n}\n"
+        }
+    ]
+}

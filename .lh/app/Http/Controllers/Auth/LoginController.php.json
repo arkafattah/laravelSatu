@@ -1,0 +1,30 @@
+{
+    "sourceFile": "app/Http/Controllers/Auth/LoginController.php",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 3,
+            "patches": [
+                {
+                    "date": 1705391751580,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1705391801253,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -17,12 +17,12 @@\n \n     function processLogin(Request $request)\n     {\n         $request->validate([\n-            'name' => 'required|name',\n+            'email' => 'required|email',\n             'password' => 'required|min:4'\n         ]);\n-        $credential = ['name' => $request->name, 'password' => $request->password];\n+        $credential = ['email' => $request->email, 'password' => $request->password];\n         $login = Auth::attempt($credential);\n         if ($login) {\n             // dd(Auth::check());\n             return redirect()->route('home');\n"
+                },
+                {
+                    "date": 1705392029078,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -17,12 +17,12 @@\n \n     function processLogin(Request $request)\n     {\n         $request->validate([\n-            'email' => 'required|email',\n+            'email' => 'required|name',\n             'password' => 'required|min:4'\n         ]);\n-        $credential = ['email' => $request->email, 'password' => $request->password];\n+        $credential = ['name' => $request->name, 'password' => $request->password];\n         $login = Auth::attempt($credential);\n         if ($login) {\n             // dd(Auth::check());\n             return redirect()->route('home');\n"
+                },
+                {
+                    "date": 1705392115876,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -17,12 +17,12 @@\n \n     function processLogin(Request $request)\n     {\n         $request->validate([\n-            'email' => 'required|name',\n+            'email' => 'required|email',\n             'password' => 'required|min:4'\n         ]);\n-        $credential = ['name' => $request->name, 'password' => $request->password];\n+        $credential = ['email' => $request->email, 'password' => $request->password];\n         $login = Auth::attempt($credential);\n         if ($login) {\n             // dd(Auth::check());\n             return redirect()->route('home');\n"
+                }
+            ],
+            "date": 1705391751580,
+            "name": "Commit-0",
+            "content": "<?php\n\nnamespace App\\Http\\Controllers\\Auth;\n\nuse App\\Http\\Controllers\\Controller;\nuse Illuminate\\Http\\Request;\nuse Illuminate\\Support\\Facades\\Auth;\n\n// use Auth;\n\nclass LoginController extends Controller\n{\n    function index()\n    {\n        return view('auth.login');\n    }\n\n    function processLogin(Request $request)\n    {\n        $request->validate([\n            'name' => 'required|name',\n            'password' => 'required|min:4'\n        ]);\n        $credential = ['name' => $request->name, 'password' => $request->password];\n        $login = Auth::attempt($credential);\n        if ($login) {\n            // dd(Auth::check());\n            return redirect()->route('home');\n        } else {\n            return redirect()->back()->withInput()->withErrors(\"Ets anda mau ngapain ?\");\n        }\n    }\n    function logout()\n    {\n        Auth::logout();\n        return redirect()->route('login');\n    }\n}\n"
+        }
+    ]
+}

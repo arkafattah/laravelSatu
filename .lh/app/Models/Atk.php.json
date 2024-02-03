@@ -1,0 +1,26 @@
+{
+    "sourceFile": "app/Models/Atk.php",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 2,
+            "patches": [
+                {
+                    "date": 1704791449550,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1705575972865,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -8,8 +8,9 @@\n class Atk extends Model\n {\n     use HasFactory;\n     protected $fillable = [\n-        'nama',\n-        'stok',\n+        'uraian',\n+        'spesifikasi',\n+        'satuan'\n     ];\n }\n"
+                },
+                {
+                    "date": 1705578099361,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -10,7 +10,7 @@\n     use HasFactory;\n     protected $fillable = [\n         'uraian',\n         'spesifikasi',\n-        'satuan'\n+        'satuan',\n     ];\n }\n"
+                }
+            ],
+            "date": 1704791449550,
+            "name": "Commit-0",
+            "content": "<?php\n\nnamespace App\\Models;\n\nuse Illuminate\\Database\\Eloquent\\Factories\\HasFactory;\nuse Illuminate\\Database\\Eloquent\\Model;\n\nclass Atk extends Model\n{\n    use HasFactory;\n    protected $fillable = [\n        'nama',\n        'stok',\n    ];\n}\n"
+        }
+    ]
+}

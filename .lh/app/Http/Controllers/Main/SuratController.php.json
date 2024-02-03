@@ -1,0 +1,18 @@
+{
+    "sourceFile": "app/Http/Controllers/Main/SuratController.php",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 0,
+            "patches": [
+                {
+                    "date": 1704803700860,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                }
+            ],
+            "date": 1704803700860,
+            "name": "Commit-0",
+            "content": "<?php\n\nnamespace App\\Http\\Controllers\\Main;\n\nuse App\\Http\\Controllers\\Controller;\nuse App\\Models\\Surat;\nuse Illuminate\\Http\\Request;\n\nclass SuratController extends Controller\n{\n    /**\n     * Display a listing of the resource.\n     */\n    public function index()\n    {\n        $data['title'] = 'Data Surat';\n        $user = Surat::all();\n        $data['result'] = $user->sortDesc();\n        return view('main.surat.index', $data);\n    }\n\n    /**\n     * Show the form for creating a new resource.\n     */\n    public function create()\n    {\n        $data['title'] = \"Tambah Data Surat\";\n        return view(\"main.surat.create\", $data);\n    }\n\n    /**\n     * Store a newly created resource in storage.\n     */\n    public function store(Request $request)\n    {\n        $validasi = $this->validate(\n            $request,\n            [\n                'jenis' => 'required',\n            ],\n            [\n                'jenis.required' => 'Jenis surat tidak boleh kosong',\n            ]\n        );\n\n        $produk = Surat::create([\n            'jenis' => $request->jenis,\n        ]);\n\n        return redirect('main/surat')->with('success', 'Data berhasil disimpan!');\n    }\n\n    /**\n     * Display the specified resource.\n     */\n    public function show($id)\n    {\n        $row = Surat::findOrFail($id);\n        return view('main.surat.show', [\n            'title' => 'Detail Data Surat',\n            'jenis' => $row->jenis,\n        ]);\n    }\n\n    /**\n     * Show the form for editing the specified resource.\n     */\n    public function edit(Request $request, $id)\n    {\n\n        $row = Surat::findOrFail($id);\n\n        return view('main.surat.edit', [\n            'title' => 'Edit Data Surat',\n            'id' => $row->id,\n            'jenis' => $row->jenis,\n        ]);\n    }\n\n    /**\n     * Update the specified resource in storage.\n     */\n    public function update(Request $request, string $id)\n    {\n        // Ambil data produk berdasarkan ID\n        $row = Surat::find($id);\n        if ($row) {\n            $row->jenis = $request->jenis;\n\n\n            // Simpan perubahan\n            $row->save();\n\n            return redirect('main/surat')->with('success', 'Data berhasil diubah');\n        }\n    }\n\n    /**\n     * Remove the specified resource from storage.\n     */\n    public function destroy(string $id)\n    {\n        $surat = Surat::findOrFail($id);\n        $surat->delete();\n        return back()->with('hapus', 'Data sudah di Hapus!');\n    }\n}\n"
+        }
+    ]
+}

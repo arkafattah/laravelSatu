@@ -1,0 +1,22 @@
+{
+    "sourceFile": "resources/views/main/kelola_kebersihan/show.blade.php",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 1,
+            "patches": [
+                {
+                    "date": 1705191711728,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1705195132393,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -12,13 +12,8 @@\n                     <!-- /.card-header -->\n                     <div class=\"card-body\">\n \n                         <div class=\"form-group\">\n-                            <label for=\"exampleFormControlTextarea1\">Nama</label>\n-                            <input type=\"text\" class=\"form-control\" name=\"nama\" value=\"{{$nama}}\">\n-                        </div>\n-\n-                        <div class=\"form-group\">\n                             <label for=\"exampleFormControlTextarea1\">Petugas</label>\n                             <input type=\"text\" class=\"form-control\" name=\"petugas_kebersihan\" value=\"{{$petugas_kebersihan}}\">\n                         </div>\n \n"
+                }
+            ],
+            "date": 1705191711728,
+            "name": "Commit-0",
+            "content": "@extends('layouts.layout_main')\n@section('content')\n\n<section class=\"content\">\n    <div class=\"container-fluid\">\n        <div class=\"row\">\n            <div class=\"col-12\">\n                <div class=\"card\">\n                    <div class=\"card-header\">\n                        <h3 class=\"card-title\">Form {{ $title }}</h3>\n                    </div>\n                    <!-- /.card-header -->\n                    <div class=\"card-body\">\n\n                        <div class=\"form-group\">\n                            <label for=\"exampleFormControlTextarea1\">Nama</label>\n                            <input type=\"text\" class=\"form-control\" name=\"nama\" value=\"{{$nama}}\">\n                        </div>\n\n                        <div class=\"form-group\">\n                            <label for=\"exampleFormControlTextarea1\">Petugas</label>\n                            <input type=\"text\" class=\"form-control\" name=\"petugas_kebersihan\" value=\"{{$petugas_kebersihan}}\">\n                        </div>\n\n                        <div class=\"form-group\">\n                            <label for=\"exampleFormControlTextarea1\">Keluhan</label>\n                            <input type=\"text\" class=\"form-control\" name=\"keluhan\" value=\"{{$keluhan}}\">\n                        </div>\n\n                        <div class=\"form-group\">\n                            <label for=\"exampleFormControlTextarea1\">Saran</label>\n                            <input type=\"text\" class=\"form-control\" name=\"saran\" value=\"{{$saran}}\">\n                        </div>\n\n                        <div class=\"form-group\">\n                            <label for=\"exampleFormControlTextarea1\">Tanggal</label>\n                            <input type=\"date\" class=\"form-control\" name=\"tanggal\" value=\"{{$tanggal}}\">\n                        </div>\n                    </div>\n                    <!-- /.card-body -->\n                </div>\n                <!-- /.card -->\n            </div>\n            <!-- /.col -->\n        </div>\n        <!-- /.row -->\n    </div>\n    <!-- /.container-fluid -->\n</section>\n@endsection\n"
+        }
+    ]
+}

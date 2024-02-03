@@ -1,0 +1,22 @@
+{
+    "sourceFile": "database/migrations/2024_01_14_014341_create_pengelolaan_kebersihans_table.php",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 1,
+            "patches": [
+                {
+                    "date": 1705196671818,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1705214583373,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,36 +0,0 @@\n-<?php\n-\n-use Illuminate\\Database\\Migrations\\Migration;\n-use Illuminate\\Database\\Schema\\Blueprint;\n-use Illuminate\\Support\\Facades\\Schema;\n-\n-return new class extends Migration\n-{\n-    /**\n-     * Run the migrations.\n-     */\n-    public function up(): void\n-    {\n-        Schema::create('pengelolaan_kebersihans', function (Blueprint $table) {\n-            $table->id();\n-            $table->unsignedBigInteger('user_id');\n-            $table->unsignedBigInteger('petugas_kebersihan');\n-            $table->string('keluhan');\n-            $table->string('saran');\n-            $table->date('tanggal');\n-            $table->string('status');\n-            $table->timestamps();\n-\n-            $table->foreign('user_id')->references('id')->on('users');\n-            $table->foreign('petugas_kebersihan')->references('id')->on('petugas_kebersihans');\n-        });\n-    }\n-\n-    /**\n-     * Reverse the migrations.\n-     */\n-    public function down(): void\n-    {\n-        Schema::dropIfExists('pengelolaan_kebersihans');\n-    }\n-};\n\\ No newline at end of file\n"
+                }
+            ],
+            "date": 1705196671818,
+            "name": "Commit-0",
+            "content": "<?php\n\nuse Illuminate\\Database\\Migrations\\Migration;\nuse Illuminate\\Database\\Schema\\Blueprint;\nuse Illuminate\\Support\\Facades\\Schema;\n\nreturn new class extends Migration\n{\n    /**\n     * Run the migrations.\n     */\n    public function up(): void\n    {\n        Schema::create('pengelolaan_kebersihans', function (Blueprint $table) {\n            $table->id();\n            $table->unsignedBigInteger('user_id');\n            $table->unsignedBigInteger('petugas_kebersihan');\n            $table->string('keluhan');\n            $table->string('saran');\n            $table->date('tanggal');\n            $table->string('status');\n            $table->timestamps();\n\n            $table->foreign('user_id')->references('id')->on('users');\n            $table->foreign('petugas_kebersihan')->references('id')->on('petugas_kebersihans');\n        });\n    }\n\n    /**\n     * Reverse the migrations.\n     */\n    public function down(): void\n    {\n        Schema::dropIfExists('pengelolaan_kebersihans');\n    }\n};\n"
+        }
+    ]
+}

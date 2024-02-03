@@ -1,0 +1,18 @@
+{
+    "sourceFile": "database/factories/PeminjamanMobilFactory.php",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 0,
+            "patches": [
+                {
+                    "date": 1704814869686,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                }
+            ],
+            "date": 1704814869686,
+            "name": "Commit-0",
+            "content": "<?php\n\nnamespace Database\\Factories;\n\nuse App\\Models\\Mobil;\nuse App\\Models\\User;\nuse Illuminate\\Database\\Eloquent\\Factories\\Factory;\n\n/**\n * @extends \\Illuminate\\Database\\Eloquent\\Factories\\Factory<\\App\\Models\\PeminjamanMobil>\n */\nclass PeminjamanMobilFactory extends Factory\n{\n    /**\n     * Define the model's default state.\n     *\n     * @return array<string, mixed>\n     */\n    public function definition(): array\n    {\n        return [\n            'user_id' => 1, // Menggunakan factory user untuk mendapatkan user_id\n            'mobil_id' => 2, // Menggunakan factory mobil untuk mendapatkan mobil_id\n            'kegiatan' => $this->faker->sentence,\n            'jam_pinjam' => $this->faker->time('H:i'),\n            'jam_kembali' => $this->faker->time('H:i'),\n            'tanggal_pinjam' => $this->faker->date,\n            'tanggal_kembali' => $this->faker->date,\n            'status' => $this->faker->randomElement(['pending', 'approved', 'rejected']),\n        ];\n    }\n}\n"
+        }
+    ]
+}

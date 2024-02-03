@@ -1,0 +1,30 @@
+{
+    "sourceFile": "database/migrations/2024_01_09_131050_create_pegawais_table.php",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 3,
+            "patches": [
+                {
+                    "date": 1704805888797,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1704806121766,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -14,9 +14,9 @@\n         Schema::create('pegawais', function (Blueprint $table) {\n             $table->id();\n             $table->string('nama');\n             $table->string('pokja');\n-            $table->string('nip');\n+            $table->integer('nip');\n             $table->timestamps();\n         });\n     }\n \n"
+                },
+                {
+                    "date": 1704806744576,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -14,9 +14,9 @@\n         Schema::create('pegawais', function (Blueprint $table) {\n             $table->id();\n             $table->string('nama');\n             $table->string('pokja');\n-            $table->integer('nip');\n+            $table->string('nip');\n             $table->timestamps();\n         });\n     }\n \n"
+                },
+                {
+                    "date": 1705840614423,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,30 +0,0 @@\n-<?php\n-\n-use Illuminate\\Database\\Migrations\\Migration;\n-use Illuminate\\Database\\Schema\\Blueprint;\n-use Illuminate\\Support\\Facades\\Schema;\n-\n-return new class extends Migration\n-{\n-    /**\n-     * Run the migrations.\n-     */\n-    public function up(): void\n-    {\n-        Schema::create('pegawais', function (Blueprint $table) {\n-            $table->id();\n-            $table->string('nama');\n-            $table->string('pokja');\n-            $table->string('nip');\n-            $table->timestamps();\n-        });\n-    }\n-\n-    /**\n-     * Reverse the migrations.\n-     */\n-    public function down(): void\n-    {\n-        Schema::dropIfExists('pegawais');\n-    }\n-};\n\\ No newline at end of file\n"
+                }
+            ],
+            "date": 1704805888797,
+            "name": "Commit-0",
+            "content": "<?php\n\nuse Illuminate\\Database\\Migrations\\Migration;\nuse Illuminate\\Database\\Schema\\Blueprint;\nuse Illuminate\\Support\\Facades\\Schema;\n\nreturn new class extends Migration\n{\n    /**\n     * Run the migrations.\n     */\n    public function up(): void\n    {\n        Schema::create('pegawais', function (Blueprint $table) {\n            $table->id();\n            $table->string('nama');\n            $table->string('pokja');\n            $table->string('nip');\n            $table->timestamps();\n        });\n    }\n\n    /**\n     * Reverse the migrations.\n     */\n    public function down(): void\n    {\n        Schema::dropIfExists('pegawais');\n    }\n};\n"
+        }
+    ]
+}

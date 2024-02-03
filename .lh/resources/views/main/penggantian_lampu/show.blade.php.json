@@ -1,0 +1,18 @@
+{
+    "sourceFile": "resources/views/main/penggantian_lampu/show.blade.php",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 0,
+            "patches": [
+                {
+                    "date": 1705241865514,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                }
+            ],
+            "date": 1705241865514,
+            "name": "Commit-0",
+            "content": ""
+        }
+    ]
+}

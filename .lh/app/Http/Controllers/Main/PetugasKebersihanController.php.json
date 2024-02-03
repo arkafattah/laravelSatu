@@ -1,0 +1,18 @@
+{
+    "sourceFile": "app/Http/Controllers/Main/PetugasKebersihanController.php",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 0,
+            "patches": [
+                {
+                    "date": 1705143017468,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                }
+            ],
+            "date": 1705143017468,
+            "name": "Commit-0",
+            "content": "<?php\n\nnamespace App\\Http\\Controllers\\Main;\n\nuse App\\Http\\Controllers\\Controller;\nuse App\\Models\\PetugasKebersihan;\nuse Illuminate\\Http\\Request;\n\nclass PetugasKebersihanController extends Controller\n{\n    /**\n     * Display a listing of the resource.\n     */\n    public function index()\n    {\n        $data['title'] = 'Data OB';\n        $user = PetugasKebersihan::all();\n        $data['result'] = $user->sortDesc();\n        return view('main.petugas_kebersihan.index', $data);\n    }\n\n    /**\n     * Show the form for creating a new resource.\n     */\n    public function create()\n    {\n        $data['title'] = \"Tambah Data OB\";\n        return view(\"main.petugas_kebersihan.create\", $data);\n    }\n\n    /**\n     * Store a newly created resource in storage.\n     */\n    public function store(Request $request)\n    {\n        $validasi = $this->validate(\n            $request,\n            [\n                'nama' => 'required',\n                'nomor_telp' => 'required',\n            ],\n            [\n                'nama.required' => 'nama OB tidak boleh kosong',\n                'nomor_telp.required' => 'nomor_telp produk tidak boleh kosong',\n\n            ]\n        );\n\n        $produk = PetugasKebersihan::create([\n            'nama' => $request->nama,\n            'nomor_telp' => $request->nomor_telp, // Simpan gambar di direktori storage/app/public/images\n        ]);\n\n        return redirect('main/petugas_kebersihan')->with('success', 'Data berhasil disimpan!');\n    }\n\n    /**\n     * Display the specified resource.\n     */\n    public function show($id)\n    {\n        $row = PetugasKebersihan::findOrFail($id);\n        return view('main.petugas_kebersihan.show', [\n            'title' => 'Detail Data OB',\n            'nama' => $row->nama,\n            'nomor_telp' => $row->nomor_telp,\n        ]);\n    }\n\n    /**\n     * Show the form for editing the specified resource.\n     */\n    public function edit(Request $request, $id)\n    {\n\n        $row = PetugasKebersihan::findOrFail($id);\n\n        return view('main.petugas_kebersihan.edit', [\n            'title' => 'Edit Data OB',\n            'id' => $row->id,\n            'nama' => $row->nama,\n            'nomor_telp' => $row->nomor_telp,\n        ]);\n    }\n\n    /**\n     * Update the specified resource in storage.\n     */\n    public function update(Request $request, string $id)\n    {\n        // Ambil data produk berdasarkan ID\n        $row = PetugasKebersihan::find($id);\n        if ($row) {\n            $row->nama = $request->nama;\n            $row->nomor_telp = $request->nomor_telp;\n\n\n            // Simpan perubahan\n            $row->save();\n\n            return redirect('main/petugas_kebersihan')->with('success', 'Data berhasil diubah');\n        }\n    }\n\n    /**\n     * Remove the specified resource from storage.\n     */\n    public function destroy(string $id)\n    {\n        $user = PetugasKebersihan::findOrFail($id);\n        $user->delete();\n        return back()->with('hapus', 'Data sudah di Hapus!');\n    }\n}\n"
+        }
+    ]
+}

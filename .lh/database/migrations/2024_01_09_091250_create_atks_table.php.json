@@ -1,0 +1,22 @@
+{
+    "sourceFile": "database/migrations/2024_01_09_091250_create_atks_table.php",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 1,
+            "patches": [
+                {
+                    "date": 1704791605237,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1705576320624,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -12,10 +12,11 @@\n     public function up(): void\n     {\n         Schema::create('atks', function (Blueprint $table) {\n             $table->id();\n-            $table->string('nama');\n-            $table->integer('stok');\n+            $table->string('uraian');\n+            $table->string('spesifikasi');\n+            $table->string('satuan');\n             $table->timestamps();\n         });\n     }\n \n"
+                }
+            ],
+            "date": 1704791605237,
+            "name": "Commit-0",
+            "content": "<?php\n\nuse Illuminate\\Database\\Migrations\\Migration;\nuse Illuminate\\Database\\Schema\\Blueprint;\nuse Illuminate\\Support\\Facades\\Schema;\n\nreturn new class extends Migration\n{\n    /**\n     * Run the migrations.\n     */\n    public function up(): void\n    {\n        Schema::create('atks', function (Blueprint $table) {\n            $table->id();\n            $table->string('nama');\n            $table->integer('stok');\n            $table->timestamps();\n        });\n    }\n\n    /**\n     * Reverse the migrations.\n     */\n    public function down(): void\n    {\n        Schema::dropIfExists('atks');\n    }\n};\n"
+        }
+    ]
+}

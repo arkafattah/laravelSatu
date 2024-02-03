@@ -1,0 +1,26 @@
+{
+    "sourceFile": "app/Http/Controllers/Main/KelompokController.php",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 2,
+            "patches": [
+                {
+                    "date": 1705838844628,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1705838919303,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -25,9 +25,9 @@\n      */\n     public function create()\n     {\n \n-        $data['title'] = \"Tambah Data Kelompok\";\n+        $data['title'] = \"Tambah Data Tim Kerja\";\n         return view(\"main.kelompok.create\", $data);\n     }\n \n     /**\n@@ -40,9 +40,9 @@\n             [\n                 'nama' => 'required',\n             ],\n             [\n-                'nama.required' => 'Nama produk tidak boleh kosong',\n+                'nama.required' => 'Tim Kerja tidak boleh kosong',\n             ]\n         );\n \n         Kelompok::create([\n"
+                },
+                {
+                    "date": 1705839454317,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -13,9 +13,9 @@\n      */\n     public function index()\n     {\n \n-        $data['title'] = 'Data Kelompok';\n+        $data['title'] = 'Data Tim Kerja';\n         $kelompok = Kelompok::all();\n         $data['result'] = $kelompok->sortDesc();\n         return view('main.kelompok.index', $data);\n     }\n"
+                }
+            ],
+            "date": 1705838844628,
+            "name": "Commit-0",
+            "content": "<?php\n\nnamespace App\\Http\\Controllers\\Main;\n\nuse App\\Http\\Controllers\\Controller;\nuse App\\Models\\Kelompok;\nuse Illuminate\\Http\\Request;\n\nclass KelompokController extends Controller\n{\n    /**\n     * Display a listing of the resource.\n     */\n    public function index()\n    {\n\n        $data['title'] = 'Data Kelompok';\n        $kelompok = Kelompok::all();\n        $data['result'] = $kelompok->sortDesc();\n        return view('main.kelompok.index', $data);\n    }\n\n    /**\n     * Show the form for creating a new resource.\n     */\n    public function create()\n    {\n\n        $data['title'] = \"Tambah Data Kelompok\";\n        return view(\"main.kelompok.create\", $data);\n    }\n\n    /**\n     * Store a newly created resource in storage.\n     */\n    public function store(Request $request)\n    {\n        $validasi = $this->validate(\n            $request,\n            [\n                'nama' => 'required',\n            ],\n            [\n                'nama.required' => 'Nama produk tidak boleh kosong',\n            ]\n        );\n\n         Kelompok::create([\n            'nama' => $request->nama,\n        ]);\n\n        return redirect('main/kelompok')->with('success', 'Data berhasil disimpan!');\n    }\n\n    /**\n     * Display the specified resource.\n     */\n    public function show(string $id)\n    {\n        $row = Kelompok::findOrFail($id);\n        return view('main.kelompok.show', [\n            'title' => 'Detail Data Tim Kerja',\n            'nama' => $row->nama,\n        ]);\n    }\n\n    /**\n     * Show the form for editing the specified resource.\n     */\n    public function edit(string $id)\n    {\n        $row = Kelompok::findOrFail($id);\n\n        return view('main.kelompok.edit', [\n            'title' => 'Edit Data Tim Kerja',\n            'id' => $row->id,\n            'nama' => $row->nama,\n        ]);\n    }\n\n    /**\n     * Update the specified resource in storage.\n     */\n    public function update(Request $request, string $id)\n    {\n        $row= Kelompok::find($id);\n        if ($row) {\n            $row->nama = $request->nama;\n            $row->save();\n\n            return redirect('main/kelompok')->with('success', 'Data berhasil diubah');\n        }\n    }\n\n    /**\n     * Remove the specified resource from storage.\n     */\n    public function destroy(string $id)\n    {\n        $data = Kelompok::findOrFail($id);\n        $data->delete();\n        return back()->with('hapus', 'Data sudah di Hapus!');\n    }\n}\n"
+        }
+    ]
+}

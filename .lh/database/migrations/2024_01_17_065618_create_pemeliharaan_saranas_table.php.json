@@ -1,0 +1,26 @@
+{
+    "sourceFile": "database/migrations/2024_01_17_065618_create_pemeliharaan_saranas_table.php",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 2,
+            "patches": [
+                {
+                    "date": 1705474854158,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1705475459279,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -10,9 +10,9 @@\n      * Run the migrations.\n      */\n     public function up(): void\n     {\n-        Schema::create('pemeliharaan_sarana', function (Blueprint $table) {\n+        Schema::create('pemeliharaan_saranas', function (Blueprint $table) {\n             $table->id();\n             $table->unsignedBigInteger('user_id');\n             $table->unsignedBigInteger('sarana_id');\n             $table->string('unit')->nullable();\n@@ -31,7 +31,7 @@\n      * Reverse the migrations.\n      */\n     public function down(): void\n     {\n-        Schema::dropIfExists('pemeliharaan_sarana');\n+        Schema::dropIfExists('pemeliharaan_saranas');\n     }\n };\n"
+                },
+                {
+                    "date": 1705540774848,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,37 +0,0 @@\n-<?php\n-\n-use Illuminate\\Database\\Migrations\\Migration;\n-use Illuminate\\Database\\Schema\\Blueprint;\n-use Illuminate\\Support\\Facades\\Schema;\n-\n-return new class extends Migration\n-{\n-    /**\n-     * Run the migrations.\n-     */\n-    public function up(): void\n-    {\n-        Schema::create('pemeliharaan_saranas', function (Blueprint $table) {\n-            $table->id();\n-            $table->unsignedBigInteger('user_id');\n-            $table->unsignedBigInteger('sarana_id');\n-            $table->string('unit')->nullable();\n-            $table->string('jumlah');\n-            $table->string('keterangan');\n-            $table->date('tanggal');\n-            $table->string('status');\n-\n-            $table->timestamps();\n-            $table->foreign('user_id')->references('id')->on('users');\n-            $table->foreign('sarana_id')->references('id')->on('saranas');\n-        });\n-    }\n-\n-    /**\n-     * Reverse the migrations.\n-     */\n-    public function down(): void\n-    {\n-        Schema::dropIfExists('pemeliharaan_saranas');\n-    }\n-};\n\\ No newline at end of file\n"
+                }
+            ],
+            "date": 1705474854158,
+            "name": "Commit-0",
+            "content": "<?php\n\nuse Illuminate\\Database\\Migrations\\Migration;\nuse Illuminate\\Database\\Schema\\Blueprint;\nuse Illuminate\\Support\\Facades\\Schema;\n\nreturn new class extends Migration\n{\n    /**\n     * Run the migrations.\n     */\n    public function up(): void\n    {\n        Schema::create('pemeliharaan_sarana', function (Blueprint $table) {\n            $table->id();\n            $table->unsignedBigInteger('user_id');\n            $table->unsignedBigInteger('sarana_id');\n            $table->string('unit')->nullable();\n            $table->string('jumlah');\n            $table->string('keterangan');\n            $table->date('tanggal');\n            $table->string('status');\n\n            $table->timestamps();\n            $table->foreign('user_id')->references('id')->on('users');\n            $table->foreign('sarana_id')->references('id')->on('saranas');\n        });\n    }\n\n    /**\n     * Reverse the migrations.\n     */\n    public function down(): void\n    {\n        Schema::dropIfExists('pemeliharaan_sarana');\n    }\n};\n"
+        }
+    ]
+}

@@ -1,0 +1,42 @@
+{
+    "sourceFile": "database/factories/PeminjamanKendaraanFactory.php",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 6,
+            "patches": [
+                {
+                    "date": 1704814864794,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1704971402730,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -25,8 +25,9 @@\n             'tanggal_pinjam' => $this->faker->date,\n             'jam_pinjam' => $this->faker->time('H:i'),\n             'tanggal_kembali' => $this->faker->date,\n             'jam_kembali' => $this->faker->time('H:i'),\n+            'kendaraan' => $this->faker->sentence,\n             'status' => $this->faker->randomElement(['pending', 'approved', 'rejected']),\n         ];\n     }\n }\n"
+                },
+                {
+                    "date": 1704971433682,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -25,9 +25,9 @@\n             'tanggal_pinjam' => $this->faker->date,\n             'jam_pinjam' => $this->faker->time('H:i'),\n             'tanggal_kembali' => $this->faker->date,\n             'jam_kembali' => $this->faker->time('H:i'),\n-            'kendaraan' => $this->faker->sentence,\n+            'keterangan' => $this->faker->sentence,\n             'status' => $this->faker->randomElement(['pending', 'approved', 'rejected']),\n         ];\n     }\n }\n"
+                },
+                {
+                    "date": 1705154847702,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -26,8 +26,8 @@\n             'jam_pinjam' => $this->faker->time('H:i'),\n             'tanggal_kembali' => $this->faker->date,\n             'jam_kembali' => $this->faker->time('H:i'),\n             'keterangan' => $this->faker->sentence,\n-            'status' => $this->faker->randomElement(['pending', 'approved', 'rejected']),\n+            'status' => $this->faker->randomElement(['pending', 'approved', 'finish', 'rejected']),\n         ];\n     }\n }\n"
+                },
+                {
+                    "date": 1705222911889,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -25,9 +25,8 @@\n             'tanggal_pinjam' => $this->faker->date,\n             'jam_pinjam' => $this->faker->time('H:i'),\n             'tanggal_kembali' => $this->faker->date,\n             'jam_kembali' => $this->faker->time('H:i'),\n-            'keterangan' => $this->faker->sentence,\n             'status' => $this->faker->randomElement(['pending', 'approved', 'finish', 'rejected']),\n         ];\n     }\n }\n"
+                },
+                {
+                    "date": 1705239101268,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -25,8 +25,8 @@\n             'tanggal_pinjam' => $this->faker->date,\n             'jam_pinjam' => $this->faker->time('H:i'),\n             'tanggal_kembali' => $this->faker->date,\n             'jam_kembali' => $this->faker->time('H:i'),\n-            'status' => $this->faker->randomElement(['pending', 'approved', 'finish', 'rejected']),\n+            'status' => $this->faker->randomElement(['diproses', 'diterima', 'selesai', 'ditolak']),\n         ];\n     }\n }\n"
+                },
+                {
+                    "date": 1705263375956,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -25,8 +25,8 @@\n             'tanggal_pinjam' => $this->faker->date,\n             'jam_pinjam' => $this->faker->time('H:i'),\n             'tanggal_kembali' => $this->faker->date,\n             'jam_kembali' => $this->faker->time('H:i'),\n-            'status' => $this->faker->randomElement(['diproses', 'diterima', 'selesai', 'ditolak']),\n+            'status' => $this->faker->randomElement(['pending', 'diterima', 'selesai', 'ditolak']),\n         ];\n     }\n }\n"
+                }
+            ],
+            "date": 1704814864794,
+            "name": "Commit-0",
+            "content": "<?php\n\nnamespace Database\\Factories;\n\nuse App\\Models\\Kendaraan;\nuse App\\Models\\User;\nuse Illuminate\\Database\\Eloquent\\Factories\\Factory;\n\n/**\n * @extends \\Illuminate\\Database\\Eloquent\\Factories\\Factory<\\App\\Models\\PeminjamanMobil>\n */\nclass PeminjamanKendaraanFactory extends Factory\n{\n    /**\n     * Define the model's default state.\n     *\n     * @return array<string, mixed>\n     */\n    public function definition(): array\n    {\n        return [\n            'user_id' => 1, // Menggunakan factory user untuk mendapatkan user_id\n            'kendaraan_id' => 2, // Menggunakan factory kendaraan untuk mendapatkan kendaraan_id\n            'kegiatan' => $this->faker->sentence,\n            'tanggal_pinjam' => $this->faker->date,\n            'jam_pinjam' => $this->faker->time('H:i'),\n            'tanggal_kembali' => $this->faker->date,\n            'jam_kembali' => $this->faker->time('H:i'),\n            'status' => $this->faker->randomElement(['pending', 'approved', 'rejected']),\n        ];\n    }\n}\n"
+        }
+    ]
+}

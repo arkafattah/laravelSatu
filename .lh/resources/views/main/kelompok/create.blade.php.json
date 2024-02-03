@@ -1,0 +1,18 @@
+{
+    "sourceFile": "resources/views/main/kelompok/create.blade.php",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 0,
+            "patches": [
+                {
+                    "date": 1705839353308,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                }
+            ],
+            "date": 1705839353308,
+            "name": "Commit-0",
+            "content": "@extends('layouts.layout_main')\n@section('content')\n\n<section class=\"content\">\n        <div class=\"container-fluid\">\n            <div class=\"row\">\n                <div class=\"col-12\">\n                    <!-- /.card -->\n\n                    @if (session('success'))\n                        <div class=\"alert alert-success\">{{ session('success') }}</div>\n                    @endif\n\n                    @if (session('hapus'))\n                        <div class=\"alert alert-warning\">{{ session('hapus') }}</div>\n                    @endif\n                    @if ($errors->any())\n                        <div class=\"alert alert-danger\" role=\"alert\">\n                            {!! implode('', $errors->all('<li>:message</li>')) !!}\n                        </div>\n                    @endif\n\n                    <div class=\"card\">\n                        <div class=\"card-header\">\n                            <h3 class=\"card-title\">Form {{ $title }}</h3>\n                        </div>\n                        <!-- /.card-header -->\n                        <div class=\"card-body\">\n\n<form action=\"{{ route('kelompok.store') }}\" method=\"POST\" enctype=\"multipart/form-data\">\n    @csrf\n    <div class=\"form-group\">\n    <label for=\"exampleFormControlTextarea1\">Tim Kerja</label>\n    <input type=\"text\"class=\"form-control\" name=\"nama\">\n  </div>\n  <button type=\"submit\" class=\"btn btn-primary\">Simpan</button>\n</form>\n                        </div>\n                        <!-- /.card-body -->\n                    </div>\n                    <!-- /.card -->\n                </div>\n                <!-- /.col -->\n            </div>\n            <!-- /.row -->\n        </div>\n        <!-- /.container-fluid -->\n    </section>\n    @endsection\n"
+        }
+    ]
+}

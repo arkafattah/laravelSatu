@@ -1,0 +1,22 @@
+{
+    "sourceFile": "database/migrations/2023_12_09_074010_create_persediaan_logistiks_table.php",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 1,
+            "patches": [
+                {
+                    "date": 1705616688794,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1705618032954,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -19,10 +19,10 @@\n             $table->string('tanggal_pengambilan');\n             $table->string('status');\n             $table->timestamps();\n \n+            $table->foreign('user_id')->references('id')->on('users');\n             $table->foreign('logistik_id')->references('id')->on('logistiks');\n-            $table->foreign('user_id')->references('id')->on('users');\n         });\n     }\n \n     /**\n"
+                }
+            ],
+            "date": 1705616688794,
+            "name": "Commit-0",
+            "content": "<?php\n\nuse Illuminate\\Database\\Migrations\\Migration;\nuse Illuminate\\Database\\Schema\\Blueprint;\nuse Illuminate\\Support\\Facades\\Schema;\n\nreturn new class extends Migration\n{\n    /**\n     * Run the migrations.\n     */\n    public function up(): void\n    {\n        Schema::create('persediaan_logistiks', function (Blueprint $table) {\n            $table->id();\n            $table->unsignedBigInteger('user_id');\n            $table->unsignedBigInteger('logistik_id');\n            $table->string('jumlah');\n            $table->string('tanggal_pengambilan');\n            $table->string('status');\n            $table->timestamps();\n\n            $table->foreign('logistik_id')->references('id')->on('logistiks');\n            $table->foreign('user_id')->references('id')->on('users');\n        });\n    }\n\n    /**\n     * Reverse the migrations.\n     */\n    public function down(): void\n    {\n        Schema::dropIfExists('persediaan_logistiks');\n    }\n};\n"
+        }
+    ]
+}

@@ -1,0 +1,22 @@
+{
+    "sourceFile": "database/factories/KelolaKebersihanFactory.php",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 1,
+            "patches": [
+                {
+                    "date": 1705193130223,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1705196561456,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -6,11 +6,11 @@\n use App\\Models\\User;\n use Illuminate\\Database\\Eloquent\\Factories\\Factory;\n \n /**\n- * @extends \\Illuminate\\Database\\Eloquent\\Factories\\Factory<\\App\\Models\\KelolaKebersihan>\n+ * @extends \\Illuminate\\Database\\Eloquent\\Factories\\Factory<\\App\\Models\\PengelolaanKebersihan>\n  */\n-class KelolaKebersihanFactory extends Factory\n+class PengelolaanKebersihanFactory extends Factory\n {\n     /**\n      * Define the model's default state.\n      *\n"
+                }
+            ],
+            "date": 1705193130223,
+            "name": "Commit-0",
+            "content": "<?php\n\nnamespace Database\\Factories;\n\nuse App\\Models\\PetugasKebersihan;\nuse App\\Models\\User;\nuse Illuminate\\Database\\Eloquent\\Factories\\Factory;\n\n/**\n * @extends \\Illuminate\\Database\\Eloquent\\Factories\\Factory<\\App\\Models\\KelolaKebersihan>\n */\nclass KelolaKebersihanFactory extends Factory\n{\n    /**\n     * Define the model's default state.\n     *\n     * @return array<string, mixed>\n     */\n    public function definition(): array\n    {\n        return [\n            'user_id' => 1, // Menggunakan factory user untuk mendapatkan user_id\n            'petugas_kebersihan' => 2, // Menggunakan factory kendaraan untuk mendapatkan kendaraan_id\n            'keluhan' => $this->faker->sentence,\n            'saran' => $this->faker->sentence,\n            'tanggal' => $this->faker->date,\n            'status' => $this->faker->randomElement(['pending', 'approved', 'rejected']),\n        ];\n    }\n}\n"
+        }
+    ]
+}

@@ -1,0 +1,18 @@
+{
+    "sourceFile": "database/factories/PembelianSarprasFactory.php",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 0,
+            "patches": [
+                {
+                    "date": 1706070902599,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                }
+            ],
+            "date": 1706070902599,
+            "name": "Commit-0",
+            "content": "<?php\n\nnamespace Database\\Factories;\n\nuse Illuminate\\Database\\Eloquent\\Factories\\Factory;\n\n/**\n * @extends \\Illuminate\\Database\\Eloquent\\Factories\\Factory<\\App\\Models\\PembelianSarana>\n */\nclass PembelianSarprasFactory extends Factory\n{\n    /**\n     * Define the model's default state.\n     *\n     * @return array<string, mixed>\n     */\n    public function definition(): array\n    {\n        return [\n            'user_id' => 1,\n            'nama' => $this->faker->word,\n            'jenis_kebutuhan' => 1,\n            'spesifikasi' => $this->faker->word,\n            'jumlah' => 3,\n            'harga_satuan' => 100000,\n            'gambar_katalog' => 'foto.jpg',\n            'paraf_kapokja' => 'foto.jpg',\n            'gambar_pembelian' => 'foto.jpg',\n            'status' => $this->faker->randomElement(['pending', 'approved', 'rejected']),\n            'tanggal' => $this->faker->date,\n        ];\n    }\n}\n"
+        }
+    ]
+}

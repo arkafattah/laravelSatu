@@ -1,0 +1,26 @@
+{
+    "sourceFile": "app/Http/Controllers/Main/UserController.php",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 2,
+            "patches": [
+                {
+                    "date": 1705203282095,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1705203294314,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -28,8 +28,9 @@\n     {\n         $objek = User::create([\n             'kode_pegawai' => $request->kode_pegawai,\n             'jab_id' => $request->jab_id,\n+            'email' => $request->email,\n             'name' => $request->name,\n             'picture' => $request->picture->store('picture', 'public'),\n             'password' => bcrypt($request->password),\n         ]);\n@@ -45,8 +46,9 @@\n     {\n         $post = User::find($id);\n         $post->name = $request->name;\n         $post->kode_pegawai = $request->kode_pegawai;\n+        $post->email = $request->email;\n         $post->password = bcrypt($request->password);\n         $post->save();\n \n         return redirect('main/user')->with('success', 'Data berhasil diubah!');\n"
+                },
+                {
+                    "date": 1705759348384,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -30,9 +30,8 @@\n             'kode_pegawai' => $request->kode_pegawai,\n             'jab_id' => $request->jab_id,\n             'email' => $request->email,\n             'name' => $request->name,\n-            'picture' => $request->picture->store('picture', 'public'),\n             'password' => bcrypt($request->password),\n         ]);\n         return redirect('main/user')->with('success', 'Data berhasil disimpan!');\n     }\n"
+                }
+            ],
+            "date": 1705203282095,
+            "name": "Commit-0",
+            "content": "<?php\n\nnamespace App\\Http\\Controllers\\Main;\n\nuse App\\Http\\Controllers\\Controller;\nuse App\\Models\\Jabatan;\nuse App\\Models\\User;\nuse Illuminate\\Http\\Request;\n\nclass UserController extends Controller\n{\n    public function index()\n    {\n\n        $data['title'] = \"Data Pegawai\";\n        $user = User::with('jabatan')->get();\n        $data['result'] = $user->sortDesc();\n        return view(\"main.user.index\", $data);\n    }\n    public function tambah()\n    {\n\n        $data['jabatan'] = Jabatan::all();\n        $data['title'] = \"Tambah Data Pegawai\";\n        return view(\"main.user.tambah\", $data);\n    }\n    public function simpan(Request $request)\n    {\n        $objek = User::create([\n            'kode_pegawai' => $request->kode_pegawai,\n            'jab_id' => $request->jab_id,\n            'name' => $request->name,\n            'picture' => $request->picture->store('picture', 'public'),\n            'password' => bcrypt($request->password),\n        ]);\n        return redirect('main/user')->with('success', 'Data berhasil disimpan!');\n    }\n    public function edit($id)\n    {\n        $data['title'] = \"Edit Data Pegawai\";\n        $data['result'] = User::findOrFail($id);\n        return view(\"main.user.edit\", $data);\n    }\n    public function aksi_ubah(Request $request, $id)\n    {\n        $post = User::find($id);\n        $post->name = $request->name;\n        $post->kode_pegawai = $request->kode_pegawai;\n        $post->password = bcrypt($request->password);\n        $post->save();\n\n        return redirect('main/user')->with('success', 'Data berhasil diubah!');\n    }\n    public function hapus($id)\n    {\n        $user = User::findOrFail($id);\n        $user->delete();\n        return back()->with('hapus', 'Data sudah di Hapus!');\n    }\n    public function lihat($id)\n    {\n        $data['title'] = \"Lihat Data Pegawai\";\n        $data['result'] = User::findOrFail($id);\n        return view(\"main.user.lihat\", $data);\n    }\n}\n"
+        }
+    ]
+}

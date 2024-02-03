@@ -1,0 +1,22 @@
+{
+    "sourceFile": "database/factories/PegawaiFactory.php",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 1,
+            "patches": [
+                {
+                    "date": 1704806064386,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1705840589634,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,25 +1,1 @@\n-<?php\n \n-namespace Database\\Factories;\n-\n-use Illuminate\\Database\\Eloquent\\Factories\\Factory;\n-\n-/**\n- * @extends \\Illuminate\\Database\\Eloquent\\Factories\\Factory<\\App\\Models\\Mobil>\n- */\n-class PegawaiFactory extends Factory\n-{\n-    /**\n-     * Define the model's default state.\n-     *\n-     * @return array<string, mixed>\n-     */\n-    public function definition(): array\n-    {\n-        return [\n-            'nama' => $this->faker->word,\n-            'pokja' => $this->faker->word,\n-            'nip' => $this->faker->word,\n-        ];\n-    }\n-}\n"
+                }
+            ],
+            "date": 1704806064386,
+            "name": "Commit-0",
+            "content": "<?php\n\nnamespace Database\\Factories;\n\nuse Illuminate\\Database\\Eloquent\\Factories\\Factory;\n\n/**\n * @extends \\Illuminate\\Database\\Eloquent\\Factories\\Factory<\\App\\Models\\Mobil>\n */\nclass PegawaiFactory extends Factory\n{\n    /**\n     * Define the model's default state.\n     *\n     * @return array<string, mixed>\n     */\n    public function definition(): array\n    {\n        return [\n            'nama' => $this->faker->word,\n            'pokja' => $this->faker->word,\n            'nip' => $this->faker->word,\n        ];\n    }\n}\n"
+        }
+    ]
+}

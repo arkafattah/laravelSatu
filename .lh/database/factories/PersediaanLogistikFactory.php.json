@@ -1,0 +1,30 @@
+{
+    "sourceFile": "database/factories/PersediaanLogistikFactory.php",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 3,
+            "patches": [
+                {
+                    "date": 1704800545819,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1705617612749,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -18,10 +18,10 @@\n     {\n         return [\n             'logistik_id' => 1, // Menggunakan factory logistik untuk mendapatkan logistik_id\n             'user_id' => 1,\n-            'jumlah_logistik' => 2,\n+            'jumlah' => 2,\n             'tanggal_pengambilan' =>  $this->faker->date,\n-            'status' => $this->faker->randomElement(['pending', 'approved', 'rejected']),\n+            'status' => $this->faker->randomElement(['pending', 'diterima', 'selesai', 'ditolak']),\n         ];\n     }\n }\n"
+                },
+                {
+                    "date": 1705618478069,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -18,10 +18,10 @@\n     {\n         return [\n             'logistik_id' => 1, // Menggunakan factory logistik untuk mendapatkan logistik_id\n             'user_id' => 1,\n-            'jumlah' => 2,\n-            'tanggal_pengambilan' =>  $this->faker->date,\n+            'jumlah' => $this->faker->number,\n+            'tanggal_pengambilan' => $this->faker->numberBetween(1, 50),\n             'status' => $this->faker->randomElement(['pending', 'diterima', 'selesai', 'ditolak']),\n         ];\n     }\n }\n"
+                },
+                {
+                    "date": 1705618515966,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -18,10 +18,10 @@\n     {\n         return [\n             'logistik_id' => 1, // Menggunakan factory logistik untuk mendapatkan logistik_id\n             'user_id' => 1,\n-            'jumlah' => $this->faker->number,\n-            'tanggal_pengambilan' => $this->faker->numberBetween(1, 50),\n+            'jumlah' => $this->faker->numberBetween(1, 50),\n+            'tanggal_pengambilan' =>  $this->faker->date,\n             'status' => $this->faker->randomElement(['pending', 'diterima', 'selesai', 'ditolak']),\n         ];\n     }\n }\n"
+                }
+            ],
+            "date": 1704800545819,
+            "name": "Commit-0",
+            "content": "<?php\n\nnamespace Database\\Factories;\n\nuse Illuminate\\Database\\Eloquent\\Factories\\Factory;\n\n/**\n * @extends \\Illuminate\\Database\\Eloquent\\Factories\\Factory<\\App\\Models\\PersediaanLogistik>\n */\nclass PersediaanLogistikFactory extends Factory\n{\n    /**\n     * Define the model's default state.\n     *\n     * @return array<string, mixed>\n     */\n    public function definition(): array\n    {\n        return [\n            'logistik_id' => 1, // Menggunakan factory logistik untuk mendapatkan logistik_id\n            'user_id' => 1,\n            'jumlah_logistik' => 2,\n            'tanggal_pengambilan' =>  $this->faker->date,\n            'status' => $this->faker->randomElement(['pending', 'approved', 'rejected']),\n        ];\n    }\n}\n"
+        }
+    ]
+}

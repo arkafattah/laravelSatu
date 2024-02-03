@@ -1,0 +1,18 @@
+{
+    "sourceFile": "app/Http/Controllers/Main/SaranaController.php",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 0,
+            "patches": [
+                {
+                    "date": 1704799776998,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                }
+            ],
+            "date": 1704799776998,
+            "name": "Commit-0",
+            "content": "<?php\n\nnamespace App\\Http\\Controllers\\Main;\n\nuse App\\Http\\Controllers\\Controller;\nuse App\\Models\\Sarana;\nuse Illuminate\\Http\\Request;\n\nclass SaranaController extends Controller\n{\n    /**\n     * Display a listing of the resource.\n     */\n    public function index()\n    {\n        $data['title'] = 'Data Sarana';\n        $user = Sarana::all();\n        $data['result'] = $user->sortDesc();\n        return view('main.sarana.index', $data);\n    }\n\n    /**\n     * Show the form for creating a new resource.\n     */\n    public function create()\n    {\n        $data['title'] = \"Tambah Data Sarana\";\n        return view(\"main.sarana.create\", $data);\n    }\n\n    /**\n     * Store a newly created resource in storage.\n     */\n    public function store(Request $request)\n    {\n        $validasi = $this->validate(\n            $request,\n            [\n                'nama' => 'required',\n                'model' => 'required',\n            ],\n            [\n                'nama.required' => 'Nama produk tidak boleh kosong',\n                'model.required' => 'model produk tidak boleh kosong',\n            ]\n        );\n\n        $produk = Sarana::create([\n            'nama' => $request->nama,\n            'model' => $request->model, // Simpan gambar di direktori storage/app/public/images\n        ]);\n\n        return redirect('main/sarana')->with('success', 'Data berhasil disimpan!');\n    }\n\n    /**\n     * Display the specified resource.\n     */\n    public function show($id)\n    {\n        $row = Sarana::findOrFail($id);\n        return view('main.sarana.show', [\n            'title' => 'Detail Data Sarana',\n            'nama' => $row->nama,\n            'model' => $row->model,\n        ]);\n    }\n\n    /**\n     * Show the form for editing the specified resource.\n     */\n    public function edit(Request $request, $id)\n    {\n\n        $row = Sarana::findOrFail($id);\n\n        return view('main.sarana.edit', [\n            'title' => 'Edit Data Sarana',\n            'id' => $row->id,\n            'nama' => $row->nama,\n            'model' => $row->model,\n        ]);\n    }\n\n    /**\n     * Update the specified resource in storage.\n     */\n    public function update(Request $request, string $id)\n    {\n        // Ambil data produk berdasarkan ID\n        $row = Sarana::find($id);\n        if ($row) {\n            $row->nama = $request->nama;\n            $row->model = $request->model;\n\n\n            // Simpan perubahan\n            $row->save();\n\n            return redirect('main/sarana')->with('success', 'Data berhasil diubah');\n        }\n    }\n\n    /**\n     * Remove the specified resource from storage.\n     */\n    public function destroy(string $id)\n    {\n        $sarana = Sarana::findOrFail($id);\n        $sarana->delete();\n        return back()->with('hapus', 'Data sudah di Hapus!');\n    }\n}\n"
+        }
+    ]
+}

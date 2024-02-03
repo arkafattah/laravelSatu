@@ -1,0 +1,18 @@
+{
+    "sourceFile": "app/Models/PenggantianLampu.php",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 0,
+            "patches": [
+                {
+                    "date": 1705241663953,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                }
+            ],
+            "date": 1705241663953,
+            "name": "Commit-0",
+            "content": "\n"
+        }
+    ]
+}

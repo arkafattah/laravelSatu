@@ -1,0 +1,26 @@
+{
+    "sourceFile": "database/factories/AtkFactory.php",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 2,
+            "patches": [
+                {
+                    "date": 1704791711802,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1705576359869,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -16,9 +16,10 @@\n      */\n     public function definition(): array\n     {\n         return [\n-            'nama' => $this->faker->word,\n-            'stok' => $this->faker->numberBetween(1, 50),\n+            'uraian' => $this->faker->word,\n+            'spesifikasi' => $this->faker->word,\n+            'satuan' => $this->faker->word,\n         ];\n     }\n }\n"
+                },
+                {
+                    "date": 1705578790157,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -4,9 +4,9 @@\n \n use Illuminate\\Database\\Eloquent\\Factories\\Factory;\n \n /**\n- * @extends \\Illuminate\\Database\\Eloquent\\Factories\\Factory<\\App\\Models\\Mobil>\n+ * @extends \\Illuminate\\Database\\Eloquent\\Factories\\Factory<\\App\\Models\\Atk>\n  */\n class AtkFactory extends Factory\n {\n     /**\n"
+                }
+            ],
+            "date": 1704791711802,
+            "name": "Commit-0",
+            "content": "<?php\n\nnamespace Database\\Factories;\n\nuse Illuminate\\Database\\Eloquent\\Factories\\Factory;\n\n/**\n * @extends \\Illuminate\\Database\\Eloquent\\Factories\\Factory<\\App\\Models\\Mobil>\n */\nclass AtkFactory extends Factory\n{\n    /**\n     * Define the model's default state.\n     *\n     * @return array<string, mixed>\n     */\n    public function definition(): array\n    {\n        return [\n            'nama' => $this->faker->word,\n            'stok' => $this->faker->numberBetween(1, 50),\n        ];\n    }\n}\n"
+        }
+    ]
+}

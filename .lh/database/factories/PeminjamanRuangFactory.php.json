@@ -1,0 +1,26 @@
+{
+    "sourceFile": "database/factories/PeminjamanRuangFactory.php",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 2,
+            "patches": [
+                {
+                    "date": 1704836527970,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1705239136891,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -24,8 +24,8 @@\n             'kegiatan' => $this->faker->sentence,\n             'mulai' => $this->faker->time('H:i'),\n             'selesai' => $this->faker->time('H:i'),\n             'tanggal' => $this->faker->date,\n-            'status' => $this->faker->randomElement(['pending', 'approved', 'rejected']),\n+            'status' => $this->faker->randomElement(['diproses', 'diterima', 'selesai', 'ditolak']),\n         ];\n     }\n }\n"
+                },
+                {
+                    "date": 1705338099379,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -24,8 +24,8 @@\n             'kegiatan' => $this->faker->sentence,\n             'mulai' => $this->faker->time('H:i'),\n             'selesai' => $this->faker->time('H:i'),\n             'tanggal' => $this->faker->date,\n-            'status' => $this->faker->randomElement(['diproses', 'diterima', 'selesai', 'ditolak']),\n+            'status' => $this->faker->randomElement(['pending', 'diterima', 'selesai', 'ditolak']),\n         ];\n     }\n }\n"
+                }
+            ],
+            "date": 1704836527970,
+            "name": "Commit-0",
+            "content": "<?php\n\nnamespace Database\\Factories;\n\nuse App\\Models\\Ruang;\nuse App\\Models\\User;\nuse Illuminate\\Database\\Eloquent\\Factories\\Factory;\n\n/**\n * @extends \\Illuminate\\Database\\Eloquent\\Factories\\Factory<\\App\\Models\\PeminjamanMobil>\n */\nclass PeminjamanRuangFactory extends Factory\n{\n    /**\n     * Define the model's default state.\n     *\n     * @return array<string, mixed>\n     */\n    public function definition(): array\n    {\n        return [\n            'user_id' => 1, // Menggunakan factory user untuk mendapatkan user_id\n            'ruang_id' => 2, // Menggunakan factory mobil untuk mendapatkan mobil_id\n            'kegiatan' => $this->faker->sentence,\n            'mulai' => $this->faker->time('H:i'),\n            'selesai' => $this->faker->time('H:i'),\n            'tanggal' => $this->faker->date,\n            'status' => $this->faker->randomElement(['pending', 'approved', 'rejected']),\n        ];\n    }\n}\n"
+        }
+    ]
+}

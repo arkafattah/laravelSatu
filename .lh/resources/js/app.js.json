@@ -1,0 +1,22 @@
+{
+    "sourceFile": "resources/js/app.js",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 1,
+            "patches": [
+                {
+                    "date": 1705342967301,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1705343421207,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,4 +1,1 @@\n import './bootstrap';\n-require('select2');\n-$('.select2').select2();\n-\n"
+                }
+            ],
+            "date": 1705342967301,
+            "name": "Commit-0",
+            "content": "import './bootstrap';\nrequire('select2');\n$('.select2').select2();\n\n"
+        }
+    ]
+}

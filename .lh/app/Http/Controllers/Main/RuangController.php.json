@@ -1,0 +1,22 @@
+{
+    "sourceFile": "app/Http/Controllers/Main/RuangController.php",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 1,
+            "patches": [
+                {
+                    "date": 1704789317048,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1704790150853,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -99,9 +99,9 @@\n      * Remove the specified resource from storage.\n      */\n     public function destroy(string $id)\n     {\n-        $mobil = Ruang::findOrFail($id);\n-        $mobil->delete();\n+        $ruang = Ruang::findOrFail($id);\n+        $ruang->delete();\n         return back()->with('hapus', 'Data sudah di Hapus!');\n     }\n }\n"
+                }
+            ],
+            "date": 1704789317048,
+            "name": "Commit-0",
+            "content": "<?php\n\nnamespace App\\Http\\Controllers\\Main;\n\nuse App\\Http\\Controllers\\Controller;\nuse App\\Models\\Ruang;\nuse Illuminate\\Http\\Request;\n\nclass RuangController extends Controller\n{\n    /**\n     * Display a listing of the resource.\n     */\n    public function index()\n    {\n        $data['title'] = 'Data Ruang';\n        $user = Ruang::all();\n        $data['result'] = $user->sortDesc();\n        return view('main.ruang.index', $data);\n    }\n\n    /**\n     * Show the form for creating a new resource.\n     */\n    public function create()\n    {\n        $data['title'] = \"Tambah Data Ruang\";\n        return view(\"main.ruang.create\", $data);\n    }\n\n    /**\n     * Store a newly created resource in storage.\n     */\n    public function store(Request $request)\n    {\n        $validasi = $this->validate(\n            $request,\n            [\n                'nama' => 'required',\n            ],\n            [\n                'nama.required' => 'Nama ruang tidak boleh kosong',\n            ]\n        );\n\n        $produk = Ruang::create([\n            'nama' => $request->nama,\n        ]);\n\n        return redirect('main/ruang')->with('success', 'Data berhasil disimpan!');\n    }\n\n    /**\n     * Display the specified resource.\n     */\n    public function show($id)\n    {\n        $row = Ruang::findOrFail($id);\n        return view('main.ruang.show', [\n            'title' => 'Detail Data Ruang',\n            'nama' => $row->nama,\n        ]);\n    }\n\n    /**\n     * Show the form for editing the specified resource.\n     */\n    public function edit(Request $request, $id)\n    {\n\n        $row = Ruang::findOrFail($id);\n\n        return view('main.ruang.edit', [\n            'title' => 'Edit Data Ruang',\n            'id' => $row->id,\n            'nama' => $row->nama,\n        ]);\n    }\n\n    /**\n     * Update the specified resource in storage.\n     */\n    public function update(Request $request, string $id)\n    {\n        // Ambil data produk berdasarkan ID\n        $row = Ruang::find($id);\n        if ($row) {\n            $row->nama = $request->nama;\n\n\n            // Simpan perubahan\n            $row->save();\n\n            return redirect('main/ruang')->with('success', 'Data berhasil diubah');\n        }\n    }\n\n    /**\n     * Remove the specified resource from storage.\n     */\n    public function destroy(string $id)\n    {\n        $mobil = Ruang::findOrFail($id);\n        $mobil->delete();\n        return back()->with('hapus', 'Data sudah di Hapus!');\n    }\n}\n"
+        }
+    ]
+}

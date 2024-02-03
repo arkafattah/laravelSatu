@@ -1,0 +1,18 @@
+{
+    "sourceFile": "resources/views/main/logistik/show.blade.php",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 0,
+            "patches": [
+                {
+                    "date": 1705616872969,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                }
+            ],
+            "date": 1705616872969,
+            "name": "Commit-0",
+            "content": "@extends('layouts.layout_main')\n@section('content')\n\n<section class=\"content\">\n    <div class=\"container-fluid\">\n        <div class=\"row\">\n            <div class=\"col-12\">\n                <div class=\"card\">\n                    <div class=\"card-header\">\n                        <h3 class=\"card-title\">Form {{ $title }}</h3>\n                    </div>\n                    <!-- /.card-header -->\n                    <div class=\"card-body\">\n\n                        <div class=\"form-group\">\n                            <label for=\"exampleFormControlTextarea1\">Nama</label>\n                            <input type=\"text\" class=\"form-control\" name=\"nama\" value=\"{{$nama}}\">\n                        </div>\n                        <div class=\"form-group\">\n                            <label for=\"exampleFormControlTextarea1\">Daftar</label>\n                            <input type=\"text\" class=\"form-control\" name=\"daftar\" value=\"{{$daftar}}\">\n                        </div>\n                    </div>\n                    <!-- /.card-body -->\n                </div>\n                <!-- /.card -->\n            </div>\n            <!-- /.col -->\n        </div>\n        <!-- /.row -->\n    </div>\n    <!-- /.container-fluid -->\n</section>\n@endsection\n"
+        }
+    ]
+}

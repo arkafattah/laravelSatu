@@ -1,0 +1,26 @@
+{
+    "sourceFile": "database/migrations/2024_01_14_061637_create_petugas_table.php",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 2,
+            "patches": [
+                {
+                    "date": 1705213044736,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1705214048019,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -14,8 +14,9 @@\n         Schema::create('petugas', function (Blueprint $table) {\n             $table->id();\n             $table->string('nama');\n             $table->string('nomor_telp');\n+            $table->string('posisi');\n             $table->timestamps();\n         });\n     }\n \n"
+                },
+                {
+                    "date": 1705841737966,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,30 +0,0 @@\n-<?php\n-\n-use Illuminate\\Database\\Migrations\\Migration;\n-use Illuminate\\Database\\Schema\\Blueprint;\n-use Illuminate\\Support\\Facades\\Schema;\n-\n-return new class extends Migration\n-{\n-    /**\n-     * Run the migrations.\n-     */\n-    public function up(): void\n-    {\n-        Schema::create('petugas', function (Blueprint $table) {\n-            $table->id();\n-            $table->string('nama');\n-            $table->string('nomor_telp');\n-            $table->string('posisi');\n-            $table->timestamps();\n-        });\n-    }\n-\n-    /**\n-     * Reverse the migrations.\n-     */\n-    public function down(): void\n-    {\n-        Schema::dropIfExists('petugas');\n-    }\n-};\n\\ No newline at end of file\n"
+                }
+            ],
+            "date": 1705213044736,
+            "name": "Commit-0",
+            "content": "<?php\n\nuse Illuminate\\Database\\Migrations\\Migration;\nuse Illuminate\\Database\\Schema\\Blueprint;\nuse Illuminate\\Support\\Facades\\Schema;\n\nreturn new class extends Migration\n{\n    /**\n     * Run the migrations.\n     */\n    public function up(): void\n    {\n        Schema::create('petugas', function (Blueprint $table) {\n            $table->id();\n            $table->string('nama');\n            $table->string('nomor_telp');\n            $table->timestamps();\n        });\n    }\n\n    /**\n     * Reverse the migrations.\n     */\n    public function down(): void\n    {\n        Schema::dropIfExists('petugas');\n    }\n};\n"
+        }
+    ]
+}

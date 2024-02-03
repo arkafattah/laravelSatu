@@ -1,0 +1,22 @@
+{
+    "sourceFile": "database/factories/KendaraanFactory.php",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 1,
+            "patches": [
+                {
+                    "date": 1704788694625,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1704788705318,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -6,9 +6,9 @@\n \n /**\n  * @extends \\Illuminate\\Database\\Eloquent\\Factories\\Factory<\\App\\Models\\Mobil>\n  */\n-class MobilFactory extends Factory\n+class KendaraanFactory extends Factory\n {\n     /**\n      * Define the model's default state.\n      *\n"
+                }
+            ],
+            "date": 1704788694625,
+            "name": "Commit-0",
+            "content": "<?php\n\nnamespace Database\\Factories;\n\nuse Illuminate\\Database\\Eloquent\\Factories\\Factory;\n\n/**\n * @extends \\Illuminate\\Database\\Eloquent\\Factories\\Factory<\\App\\Models\\Mobil>\n */\nclass MobilFactory extends Factory\n{\n    /**\n     * Define the model's default state.\n     *\n     * @return array<string, mixed>\n     */\n    public function definition(): array\n    {\n        return [\n            'jenis' => $this->faker->word,\n            'nopol' => $this->faker->word,\n            'tipe' => $this->faker->word,\n            'warna' => $this->faker->word,\n            'tahun' => $this->faker->year,\n        ];\n    }\n}\n"
+        }
+    ]
+}

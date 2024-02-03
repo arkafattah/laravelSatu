@@ -1,0 +1,30 @@
+{
+    "sourceFile": "database/migrations/2024_01_09_153758_create_peminjaman_kendaraans_table.php",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 3,
+            "patches": [
+                {
+                    "date": 1704814719698,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1704814876844,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,38 @@\n+<?php\n+\n+use Illuminate\\Database\\Migrations\\Migration;\n+use Illuminate\\Database\\Schema\\Blueprint;\n+use Illuminate\\Support\\Facades\\Schema;\n+\n+return new class extends Migration\n+{\n+    /**\n+     * Run the migrations.\n+     */\n+    public function up(): void\n+    {\n+        Schema::create('peminjaman_kendaraans', function (Blueprint $table) {\n+            $table->id();\n+            $table->unsignedBigInteger('user_id');\n+            $table->unsignedBigInteger('kendaraan_id');\n+            $table->string('kegiatan');\n+            $table->date('tanggal_pinjam');\n+            $table->time('jam_pinjam');\n+            $table->date('tanggal_kembali');\n+            $table->time('jam_kembali');\n+            $table->string('status');\n+            $table->timestamps();\n+\n+            $table->foreign('user_id')->references('id')->on('users');\n+            $table->foreign('kendaraan_id')->references('id')->on('kendaraans');\n+        });\n+    }\n+\n+    /**\n+     * Reverse the migrations.\n+     */\n+    public function down(): void\n+    {\n+        Schema::dropIfExists('peminjaman_kendaraans');\n+    }\n+};\n"
+                },
+                {
+                    "date": 1704971387335,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -19,8 +19,9 @@\n             $table->date('tanggal_pinjam');\n             $table->time('jam_pinjam');\n             $table->date('tanggal_kembali');\n             $table->time('jam_kembali');\n+            $table->string('kendaraan');\n             $table->string('status');\n             $table->timestamps();\n \n             $table->foreign('user_id')->references('id')->on('users');\n@@ -35,42 +36,4 @@\n     {\n         Schema::dropIfExists('peminjaman_kendaraans');\n     }\n };\n-<?php\n-\n-use Illuminate\\Database\\Migrations\\Migration;\n-use Illuminate\\Database\\Schema\\Blueprint;\n-use Illuminate\\Support\\Facades\\Schema;\n-\n-return new class extends Migration\n-{\n-    /**\n-     * Run the migrations.\n-     */\n-    public function up(): void\n-    {\n-        Schema::create('peminjaman_kendaraans', function (Blueprint $table) {\n-            $table->id();\n-            $table->unsignedBigInteger('user_id');\n-            $table->unsignedBigInteger('kendaraan_id');\n-            $table->string('kegiatan');\n-            $table->date('tanggal_pinjam');\n-            $table->time('jam_pinjam');\n-            $table->date('tanggal_kembali');\n-            $table->time('jam_kembali');\n-            $table->string('status');\n-            $table->timestamps();\n-\n-            $table->foreign('user_id')->references('id')->on('users');\n-            $table->foreign('kendaraan_id')->references('id')->on('kendaraans');\n-        });\n-    }\n-\n-    /**\n-     * Reverse the migrations.\n-     */\n-    public function down(): void\n-    {\n-        Schema::dropIfExists('peminjaman_kendaraans');\n-    }\n-};\n"
+                },
+                {
+                    "date": 1705492985584,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -19,9 +19,8 @@\n             $table->date('tanggal_pinjam');\n             $table->time('jam_pinjam');\n             $table->date('tanggal_kembali');\n             $table->time('jam_kembali');\n-            $table->string('kendaraan');\n             $table->string('status');\n             $table->timestamps();\n \n             $table->foreign('user_id')->references('id')->on('users');\n"
+                }
+            ],
+            "date": 1704814719698,
+            "name": "Commit-0",
+            "content": "<?php\n\nuse Illuminate\\Database\\Migrations\\Migration;\nuse Illuminate\\Database\\Schema\\Blueprint;\nuse Illuminate\\Support\\Facades\\Schema;\n\nreturn new class extends Migration\n{\n    /**\n     * Run the migrations.\n     */\n    public function up(): void\n    {\n        Schema::create('peminjaman_kendaraans', function (Blueprint $table) {\n            $table->id();\n            $table->unsignedBigInteger('user_id');\n            $table->unsignedBigInteger('kendaraan_id');\n            $table->string('kegiatan');\n            $table->date('tanggal_pinjam');\n            $table->time('jam_pinjam');\n            $table->date('tanggal_kembali');\n            $table->time('jam_kembali');\n            $table->string('status');\n            $table->timestamps();\n\n            $table->foreign('user_id')->references('id')->on('users');\n            $table->foreign('kendaraan_id')->references('id')->on('kendaraans');\n        });\n    }\n\n    /**\n     * Reverse the migrations.\n     */\n    public function down(): void\n    {\n        Schema::dropIfExists('peminjaman_kendaraans');\n    }\n};\n"
+        }
+    ]
+}

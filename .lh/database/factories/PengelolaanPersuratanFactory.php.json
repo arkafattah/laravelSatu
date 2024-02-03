@@ -1,0 +1,42 @@
+{
+    "sourceFile": "database/factories/PengelolaanPersuratanFactory.php",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 6,
+            "patches": [
+                {
+                    "date": 1704866590262,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1705319945371,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -22,8 +22,8 @@\n             'pegawai_id' => 1,\n             'keterangan' => $this->faker->word,\n             'lampiran' => 'foto.jpg',\n             'tanggal' => $this->faker->date,\n-            'status' => $this->faker->randomElement(['pending', 'approved', 'rejected']),\n+            'status' => $this->faker->randomElement(['pending', 'diterima', 'selesai', 'ditolak']),\n         ];\n     }\n }\n"
+                },
+                {
+                    "date": 1705373624550,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -17,10 +17,10 @@\n     public function definition(): array\n     {\n         return [\n             'user_id' => 1,\n-            'surat_id' => 1,\n-            'pegawai_id' => 1,\n+            'surat' => $this->faker->randomElement(['pending', 'diterima', 'selesai', 'ditolak']),\n+            'pegawai' => $this->faker->randomElement(['pending', 'diterima', 'selesai', 'ditolak']),\n             'keterangan' => $this->faker->word,\n             'lampiran' => 'foto.jpg',\n             'tanggal' => $this->faker->date,\n             'status' => $this->faker->randomElement(['pending', 'diterima', 'selesai', 'ditolak']),\n"
+                },
+                {
+                    "date": 1705373820844,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -17,10 +17,10 @@\n     public function definition(): array\n     {\n         return [\n             'user_id' => 1,\n-            'surat' => $this->faker->randomElement(['pending', 'diterima', 'selesai', 'ditolak']),\n-            'pegawai' => $this->faker->randomElement(['pending', 'diterima', 'selesai', 'ditolak']),\n+            'surat_id' => 1,\n+            'pegawai_id' => $this->faker->randomElement(['pending', 'diterima', 'selesai', 'ditolak']),\n             'keterangan' => $this->faker->word,\n             'lampiran' => 'foto.jpg',\n             'tanggal' => $this->faker->date,\n             'status' => $this->faker->randomElement(['pending', 'diterima', 'selesai', 'ditolak']),\n"
+                },
+                {
+                    "date": 1705386103336,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -18,9 +18,9 @@\n     {\n         return [\n             'user_id' => 1,\n             'surat_id' => 1,\n-            'pegawai_id' => $this->faker->randomElement(['pending', 'diterima', 'selesai', 'ditolak']),\n+            'pegawai_id' => $this->faker->randomElement(['Yan Medya', 'Antony', 'Yuda', 'Nugroho']),\n             'keterangan' => $this->faker->word,\n             'lampiran' => 'foto.jpg',\n             'tanggal' => $this->faker->date,\n             'status' => $this->faker->randomElement(['pending', 'diterima', 'selesai', 'ditolak']),\n"
+                },
+                {
+                    "date": 1705448815366,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -20,9 +20,9 @@\n             'user_id' => 1,\n             'surat_id' => 1,\n             'pegawai_id' => $this->faker->randomElement(['Yan Medya', 'Antony', 'Yuda', 'Nugroho']),\n             'keterangan' => $this->faker->word,\n-            'lampiran' => 'foto.jpg',\n+            'lampiran' => 'file.pdf',\n             'tanggal' => $this->faker->date,\n             'status' => $this->faker->randomElement(['pending', 'diterima', 'selesai', 'ditolak']),\n         ];\n     }\n"
+                },
+                {
+                    "date": 1706094544088,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -4,9 +4,9 @@\n \n use Illuminate\\Database\\Eloquent\\Factories\\Factory;\n \n /**\n- * @extends \\Illuminate\\Database\\Eloquent\\Factories\\Factory<\\App\\Models\\PembelianSarpras>\n+ * @extends \\Illuminate\\Database\\Eloquent\\Factories\\Factory<\\App\\Models\\PengelolaanPersuratan>\n  */\n class PengelolaanPersuratanFactory extends Factory\n {\n     /**\n"
+                }
+            ],
+            "date": 1704866590262,
+            "name": "Commit-0",
+            "content": "<?php\n\nnamespace Database\\Factories;\n\nuse Illuminate\\Database\\Eloquent\\Factories\\Factory;\n\n/**\n * @extends \\Illuminate\\Database\\Eloquent\\Factories\\Factory<\\App\\Models\\PembelianSarpras>\n */\nclass PengelolaanPersuratanFactory extends Factory\n{\n    /**\n     * Define the model's default state.\n     *\n     * @return array<string, mixed>\n     */\n    public function definition(): array\n    {\n        return [\n            'user_id' => 1,\n            'surat_id' => 1,\n            'pegawai_id' => 1,\n            'keterangan' => $this->faker->word,\n            'lampiran' => 'foto.jpg',\n            'tanggal' => $this->faker->date,\n            'status' => $this->faker->randomElement(['pending', 'approved', 'rejected']),\n        ];\n    }\n}\n"
+        }
+    ]
+}

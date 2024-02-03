@@ -1,0 +1,22 @@
+{
+    "sourceFile": "app/Models/PembelianSarpras.php",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 1,
+            "patches": [
+                {
+                    "date": 1705546415815,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1706069552543,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -10,17 +10,18 @@\n     use HasFactory;\n     protected $fillable = [\n         'user_id',\n         'nama',\n-        'gambar_katalog',\n-        'paraf_kapokja',\n-        'gambar_pembelian',\n+        'katalog',\n+        'keterangan',\n+        'tanggal',\n+        'status',\n     ];\n     public function users()\n     {\n         return $this->belongsTo(User::class, 'user_id', 'id');\n     }\n-    public function jenis_kebutuhans()\n+    public function sarana()\n     {\n-        return $this->belongsTo(JenisKebutuhan::class, 'jenis_kebutuhan', 'id');\n+        return $this->belongsTo(Sarana::class, 'sarana_id', 'id');\n     }\n }\n"
+                }
+            ],
+            "date": 1705546415815,
+            "name": "Commit-0",
+            "content": "<?php\n\nnamespace App\\Models;\n\nuse Illuminate\\Database\\Eloquent\\Factories\\HasFactory;\nuse Illuminate\\Database\\Eloquent\\Model;\n\nclass PembelianSarpras extends Model\n{\n    use HasFactory;\n    protected $fillable = [\n        'user_id',\n        'nama',\n        'gambar_katalog',\n        'paraf_kapokja',\n        'gambar_pembelian',\n    ];\n    public function users()\n    {\n        return $this->belongsTo(User::class, 'user_id', 'id');\n    }\n    public function jenis_kebutuhans()\n    {\n        return $this->belongsTo(JenisKebutuhan::class, 'jenis_kebutuhan', 'id');\n    }\n}\n"
+        }
+    ]
+}

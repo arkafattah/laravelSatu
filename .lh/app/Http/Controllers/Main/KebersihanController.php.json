@@ -1,0 +1,42 @@
+{
+    "sourceFile": "app/Http/Controllers/Main/KebersihanController.php",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 6,
+            "patches": [
+                {
+                    "date": 1705491902152,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1705493277496,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -6,9 +6,9 @@\n use App\\Models\\Kebersihan;\n use App\\Models\\User;\n use Illuminate\\Http\\Request;\n \n-class PeminjamanKendaraanController extends Controller\n+class KebersihanController extends Controller\n {\n     /**\n      * Display a listing of the resource.\n      */\n"
+                },
+                {
+                    "date": 1705493655696,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -80,9 +80,16 @@\n      * Display the specified resource.\n      */\n     public function show(string $id)\n     {\n-        //\n+        $row = Kebersihan::findOrFail($id);\n+        return view('main.kebersihan.show', [\n+            'title' => 'Detail Data Kebersihan',\n+            'user_id' => $row->user_id,\n+            'keluhan' => $row->keluhan,\n+            'saran' => $row->saran,\n+            'tanggal' => $row->tanggal,\n+        ]);\n     }\n \n     /**\n      * Show the form for editing the specified resource.\n"
+                },
+                {
+                    "date": 1705734523924,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -99,8 +99,9 @@\n         $row = Kebersihan::findOrFail($id);\n         $user = User::all();\n         return view('main.kebersihan.edit', [\n             'title' => 'Edit Data Pengajuan Kendaraan',\n+            'user_id' => $row->user_id,\n             'user' => $user,\n             'id' => $row->id,\n             'keluhan' => $row->keluhan,\n             'saran' => $row->saran,\n"
+                },
+                {
+                    "date": 1705734553301,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -117,8 +117,9 @@\n     {\n \n         $row = Kebersihan::find($id);\n \n+        $row->user_id = $request->user_id;\n         $row->keluhan = $request->keluhan;\n         $row->saran = $request->saran;\n         $row->tanggal = $request->tanggal;\n         $row->status = $request->status;\n"
+                },
+                {
+                    "date": 1705734815358,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -98,9 +98,9 @@\n     {\n         $row = Kebersihan::findOrFail($id);\n         $user = User::all();\n         return view('main.kebersihan.edit', [\n-            'title' => 'Edit Data Pengajuan Kendaraan',\n+            'title' => 'Edit Data Pengajuan Kebersihan',\n             'user_id' => $row->user_id,\n             'user' => $user,\n             'id' => $row->id,\n             'keluhan' => $row->keluhan,\n"
+                },
+                {
+                    "date": 1705985672192,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -13,23 +13,12 @@\n      * Display a listing of the resource.\n      */\n     public function index()\n     {\n-        if ($user = auth()->user()->jab_id == 4) {\n-            $user = auth()->user()->id;\n-            $data['title'] = 'Data kebersihan';\n-            $user = Kebersihan::with('users')\n-                ->where('user_id', $user)\n-                ->get();\n-            $data['result'] = $user->sortDesc();\n-            return view('main.kebersihan.index', $data);\n-        } else {\n-            $data['title'] = 'Data kebersihan';\n-            $user = Kebersihan::with('users')\n-                ->get();\n-            $data['result'] = $user->sortDesc();\n-            return view('main.kebersihan.index', $data);\n-        }\n+        $data['title'] = 'Data kebersihan';\n+        $user = Kebersihan::with('users')->get();\n+        $data['result'] = $user->sortDesc();\n+        return view('main.kebersihan.index', $data);\n     }\n \n     /**\n      * Show the form for creating a new resource.\n"
+                }
+            ],
+            "date": 1705491902152,
+            "name": "Commit-0",
+            "content": "<?php\n\nnamespace App\\Http\\Controllers\\Main;\n\nuse App\\Http\\Controllers\\Controller;\nuse App\\Models\\Kebersihan;\nuse App\\Models\\User;\nuse Illuminate\\Http\\Request;\n\nclass PeminjamanKendaraanController extends Controller\n{\n    /**\n     * Display a listing of the resource.\n     */\n    public function index()\n    {\n        if ($user = auth()->user()->jab_id == 4) {\n            $user = auth()->user()->id;\n            $data['title'] = 'Data kebersihan';\n            $user = Kebersihan::with('users')\n                ->where('user_id', $user)\n                ->get();\n            $data['result'] = $user->sortDesc();\n            return view('main.kebersihan.index', $data);\n        } else {\n            $data['title'] = 'Data kebersihan';\n            $user = Kebersihan::with('users')\n                ->get();\n            $data['result'] = $user->sortDesc();\n            return view('main.kebersihan.index', $data);\n        }\n    }\n\n    /**\n     * Show the form for creating a new resource.\n     */\n    public function create()\n    {\n        $data['user'] = User::all();\n        $data['kebersihan'] = Kebersihan::all();\n        $data['title'] = \"Tambah Data Kebersihan\";\n        return view(\"main.kebersihan.create\", $data);\n    }\n\n    /**\n     * Store a newly created resource in storage.\n     */\n    public function store(Request $request)\n    {\n        $validasi = $this->validate(\n            $request,\n            [\n                'user_id' => 'required',\n                'keluhan' => 'required',\n                'saran' => 'required',\n                'tanggal' => 'required',\n                'status' => 'required',\n\n            ],\n            [\n                'user_id.required' => 'user_id tidak boleh kosong',\n                'keluhan.required' => 'keluhan tidak boleh kosong',\n                'saran.required' => 'saran tidak boleh kosong',\n                'tanggal.required' => 'tanggal tidak boleh kosong',\n                'status.required' => 'status tidak boleh kosong',\n            ]\n        );\n\n        Kebersihan::create([\n            'user_id' => $request->user_id,\n            'keluhan' => $request->keluhan,\n            'saran' => $request->saran,\n            'tanggal' => $request->tanggal,\n            'status' => $request->status,\n        ]);\n        return redirect('main/kebersihan')->with('success', 'Data berhasil disimpan!');\n    }\n\n    /**\n     * Display the specified resource.\n     */\n    public function show(string $id)\n    {\n        //\n    }\n\n    /**\n     * Show the form for editing the specified resource.\n     */\n    public function edit(string $id)\n    {\n        $row = Kebersihan::findOrFail($id);\n        $user = User::all();\n        return view('main.kebersihan.edit', [\n            'title' => 'Edit Data Pengajuan Kendaraan',\n            'user' => $user,\n            'id' => $row->id,\n            'keluhan' => $row->keluhan,\n            'saran' => $row->saran,\n            'tanggal' => $row->tanggal,\n            'status' => $row->status,\n        ]);\n    }\n\n    /**\n     * Update the specified resource in storage.\n     */\n    public function update(Request $request, string $id)\n    {\n\n        $row = Kebersihan::find($id);\n\n        $row->keluhan = $request->keluhan;\n        $row->saran = $request->saran;\n        $row->tanggal = $request->tanggal;\n        $row->status = $request->status;\n\n        $row->save();\n\n\n        return redirect('main/kebersihan')->with('success', 'Data berhasil diubah');\n    }\n\n\n    /**\n     * Remove the specified resource from storage.\n     */\n    public function destroy(string $id)\n    {\n        $data = Kebersihan::findOrFail($id);\n\n        $data->delete();\n        return back()->with('hapus', 'Data sudah di Hapus!');\n    }\n}\n"
+        }
+    ]
+}

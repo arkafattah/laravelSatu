@@ -1,0 +1,26 @@
+{
+    "sourceFile": "database/migrations/2023_12_09_064626_create_kelola_kebersihans_table.php",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 2,
+            "patches": [
+                {
+                    "date": 1705192920344,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1705192954492,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -14,11 +14,10 @@\n         Schema::create('kelola_kebersihans', function (Blueprint $table) {\n             $table->id();\n             $table->unsignedBigInteger('user_id');\n             $table->unsignedBigInteger('petugas_kebersihan');\n-            $table->string('kegiatan');\n-            $table->time('mulai');\n-            $table->time('selesai');\n+            $table->string('keluhan');\n+            $table->string('saran');\n             $table->date('tanggal');\n             $table->string('status');\n             $table->timestamps();\n \n"
+                },
+                {
+                    "date": 1705197132242,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,36 +0,0 @@\n-<?php\n-\n-use Illuminate\\Database\\Migrations\\Migration;\n-use Illuminate\\Database\\Schema\\Blueprint;\n-use Illuminate\\Support\\Facades\\Schema;\n-\n-return new class extends Migration\n-{\n-    /**\n-     * Run the migrations.\n-     */\n-    public function up(): void\n-    {\n-        Schema::create('kelola_kebersihans', function (Blueprint $table) {\n-            $table->id();\n-            $table->unsignedBigInteger('user_id');\n-            $table->unsignedBigInteger('petugas_kebersihan');\n-            $table->string('keluhan');\n-            $table->string('saran');\n-            $table->date('tanggal');\n-            $table->string('status');\n-            $table->timestamps();\n-\n-            $table->foreign('user_id')->references('id')->on('users');\n-            $table->foreign('petugas_kebersihan')->references('id')->on('petugas_kebersihans');\n-        });\n-    }\n-\n-    /**\n-     * Reverse the migrations.\n-     */\n-    public function down(): void\n-    {\n-        Schema::dropIfExists('kelola_kebersihans');\n-    }\n-};\n\\ No newline at end of file\n"
+                }
+            ],
+            "date": 1705192920344,
+            "name": "Commit-0",
+            "content": "<?php\n\nuse Illuminate\\Database\\Migrations\\Migration;\nuse Illuminate\\Database\\Schema\\Blueprint;\nuse Illuminate\\Support\\Facades\\Schema;\n\nreturn new class extends Migration\n{\n    /**\n     * Run the migrations.\n     */\n    public function up(): void\n    {\n        Schema::create('kelola_kebersihans', function (Blueprint $table) {\n            $table->id();\n            $table->unsignedBigInteger('user_id');\n            $table->unsignedBigInteger('petugas_kebersihan');\n            $table->string('kegiatan');\n            $table->time('mulai');\n            $table->time('selesai');\n            $table->date('tanggal');\n            $table->string('status');\n            $table->timestamps();\n\n            $table->foreign('user_id')->references('id')->on('users');\n            $table->foreign('petugas_kebersihan')->references('id')->on('petugas_kebersihans');\n        });\n    }\n\n    /**\n     * Reverse the migrations.\n     */\n    public function down(): void\n    {\n        Schema::dropIfExists('kelola_kebersihans');\n    }\n};\n"
+        }
+    ]
+}

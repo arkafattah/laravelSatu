@@ -1,0 +1,22 @@
+{
+    "sourceFile": "app/Http/Controllers/Main/LogistikController.php",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 1,
+            "patches": [
+                {
+                    "date": 1705616320855,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1705616333633,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -106,9 +106,9 @@\n      */\n     public function destroy(string $id)\n     {\n \n-        $mobil = Logistik::findOrFail($id);\n-        $mobil->delete();\n+        $logistik = Logistik::findOrFail($id);\n+        $logistik->delete();\n         return back()->with('hapus', 'Data sudah di Hapus!');\n     }\n }\n"
+                }
+            ],
+            "date": 1705616320855,
+            "name": "Commit-0",
+            "content": "<?php\n\nnamespace App\\Http\\Controllers\\Main;\n\nuse App\\Http\\Controllers\\Controller;\nuse App\\Models\\Logistik;\nuse Illuminate\\Http\\Request;\n\nclass LogistikController extends Controller\n{\n    /**\n     * Display a listing of the resource.\n     */\n    public function index()\n    {\n\n        $data['title'] = 'Data Logistik';\n        $logistik = Logistik::all();\n        $data['result'] = $logistik->sortDesc();\n        return view('main.logistik.index', $data);\n    }\n\n    /**\n     * Show the form for creating a new resource.\n     */\n    public function create()\n    {\n\n        $data['title'] = \"Tambah Data Logistik\";\n        return view(\"main.logistik.create\", $data);\n    }\n\n    /**\n     * Store a newly created resource in storage.\n     */\n    public function store(Request $request)\n    {\n        $validasi = $this->validate(\n            $request,\n            [\n                'nama' => 'required',\n                'daftar' => 'required',\n            ],\n            [\n                'nama.required' => 'nama tidak boleh kosong',\n                'daftar.required' => 'Daftar tidak boleh kosong',\n            ]\n        );\n\n        $produk = Logistik::create([\n            'nama' => $request->nama,\n            'daftar' => $request->daftar,\n        ]);\n\n        return redirect('main/logistik')->with('success', 'Data berhasil disimpan!');\n    }\n\n\n    /**\n     * Display the specified resource.\n     */\n    public function show(string $id)\n    {\n        $row = Logistik::findOrFail($id);\n        return view('main.logistik.show', [\n            'title' => 'Detail Data Logistik',\n            'nama' => $row->nama,\n            'daftar' => $row->daftar,\n        ]);\n    }\n\n    /**\n     * Show the form for editing the specified resource.\n     */\n    public function edit(string $id)\n    {\n\n        $row = Logistik::findOrFail($id);\n\n        return view('main.logistik.edit', [\n            'title' => 'Edit Data Logistik',\n            'id' => $row->id,\n            'nama' => $row->nama,\n            'daftar' => $row->daftar,\n        ]);\n    }\n\n    /**\n     * Update the specified resource in storage.\n     */\n    public function update(Request $request, string $id)\n    {\n        $row = Logistik::find($id);\n        if ($row) {\n            $row->nama = $request->nama;\n            $row->daftar = $request->daftar;\n            // Simpan perubahan\n            $row->save();\n\n            return redirect('main/logistik')->with('success', 'Data berhasil diubah');\n        }\n    }\n\n    /**\n     * Remove the specified resource from storage.\n     */\n    public function destroy(string $id)\n    {\n\n        $mobil = Logistik::findOrFail($id);\n        $mobil->delete();\n        return back()->with('hapus', 'Data sudah di Hapus!');\n    }\n}\n"
+        }
+    ]
+}

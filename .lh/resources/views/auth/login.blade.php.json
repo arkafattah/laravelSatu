@@ -1,0 +1,46 @@
+{
+    "sourceFile": "resources/views/auth/login.blade.php",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 7,
+            "patches": [
+                {
+                    "date": 1704954560640,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1705392009456,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -20,9 +20,9 @@\n \n             <form method=\"post\" action=\"{{ route('login') }}\">\n                 @csrf\n                 <div class=\"input-group mb-3\">\n-                    <input type=\"email\" name=\"email\" class=\"form-control\" placeholder=\"Enter email\" value=\"{{ old('email') }}\">\n+                    <input type=\"name\" name=\"name\" class=\"form-control\" placeholder=\"Enter email\" value=\"{{ old('name') }}\">\n                     <div class=\"input-group-append\">\n                         <div class=\"input-group-text\">\n                             <span class=\"fas fa-envelope\"></span>\n                         </div>\n"
+                },
+                {
+                    "date": 1705392124679,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -20,9 +20,9 @@\n \n             <form method=\"post\" action=\"{{ route('login') }}\">\n                 @csrf\n                 <div class=\"input-group mb-3\">\n-                    <input type=\"name\" name=\"name\" class=\"form-control\" placeholder=\"Enter email\" value=\"{{ old('name') }}\">\n+                    <input type=\"email\" name=\"email\" class=\"form-control\" placeholder=\"Enter email\" value=\"{{ old('email') }}\">\n                     <div class=\"input-group-append\">\n                         <div class=\"input-group-text\">\n                             <span class=\"fas fa-envelope\"></span>\n                         </div>\n"
+                },
+                {
+                    "date": 1706521046429,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,6 +1,6 @@\n @extends('layouts.layout_auth')\n-@section('title', 'Sistem SARPRAS APP || UIN STS Jambi')\n+@section('title', 'Sistem SATU || LLDikti Wilayah III')\n @section('content')\n <div class=\"login-box\">\n     <!-- /.login-logo -->\n     <div class=\"card card-outline card-primary\">\n"
+                },
+                {
+                    "date": 1706521109024,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -52,16 +52,12 @@\n                     <!-- /.col -->\n                 </div>\n             </form>\n \n-            <p class=\"mb-1\">\n-                <a href=\"#\">I forgot my password</a>\n-            </p>\n-            <p class=\"mb-0\">\n-                <a href=\"{{ url('auth/register') }}\" class=\"text-center\">Register</a>\n-            </p>\n+\n+\n             <hr>\n-            <p align=\"center\">CopyRight &copy; {{ date('Y') }} <br> SupportBy || SARPRAS APP</p>\n+            <p align=\"center\">CopyRight &copy; {{ date('Y') }} <br> SupportBy || SATU LLDikti Wilayah III</p>\n         </div>\n         <!-- /.card-body -->\n     </div>\n     <!-- /.card -->\n"
+                },
+                {
+                    "date": 1706521138177,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -51,11 +51,8 @@\n                     </div>\n                     <!-- /.col -->\n                 </div>\n             </form>\n-\n-\n-\n             <hr>\n             <p align=\"center\">CopyRight &copy; {{ date('Y') }} <br> SupportBy || SATU LLDikti Wilayah III</p>\n         </div>\n         <!-- /.card-body -->\n"
+                },
+                {
+                    "date": 1706521180989,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -51,8 +51,11 @@\n                     </div>\n                     <!-- /.col -->\n                 </div>\n             </form>\n+            <p class=\"mb-0\">\n+                <a href=\"{{ url('auth/register') }}\" class=\"text-center\">Register</a>\n+            </p>\n             <hr>\n             <p align=\"center\">CopyRight &copy; {{ date('Y') }} <br> SupportBy || SATU LLDikti Wilayah III</p>\n         </div>\n         <!-- /.card-body -->\n"
+                },
+                {
+                    "date": 1706521312812,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -40,9 +40,9 @@\n                     <div class=\"col-8\">\n                         <div class=\"icheck-primary\">\n                             <input type=\"checkbox\" id=\"remember\">\n                             <label for=\"remember\">\n-                                Remember Me\n+                                Ingatkan Saya\n                             </label>\n                         </div>\n                     </div>\n                     <!-- /.col -->\n"
+                }
+            ],
+            "date": 1704954560640,
+            "name": "Commit-0",
+            "content": "@extends('layouts.layout_auth')\n@section('title', 'Sistem SARPRAS APP || UIN STS Jambi')\n@section('content')\n<div class=\"login-box\">\n    <!-- /.login-logo -->\n    <div class=\"card card-outline card-primary\">\n        <div class=\"card-header text-center\">\n            <img style=\"inline-size: 100%;\" src=\"{{ url('satu black.png') }}\" alt=\"\"><br>\n\n        </div>\n        @if (session('success'))\n        <div class=\"alert alert-success\">{{ session('success') }}</div>\n        @endif\n        @if ($errors->any())\n        <div class=\"alert alert-danger\" role=\"alert\">\n            {!! implode('', $errors->all('<li>:message</li>')) !!}\n        </div>\n        @endif\n        <div class=\"card-body\">\n\n            <form method=\"post\" action=\"{{ route('login') }}\">\n                @csrf\n                <div class=\"input-group mb-3\">\n                    <input type=\"email\" name=\"email\" class=\"form-control\" placeholder=\"Enter email\" value=\"{{ old('email') }}\">\n                    <div class=\"input-group-append\">\n                        <div class=\"input-group-text\">\n                            <span class=\"fas fa-envelope\"></span>\n                        </div>\n                    </div>\n                </div>\n                <div class=\"input-group mb-3\">\n                    <input type=\"password\" name=\"password\" class=\"form-control\" placeholder=\"Password\">\n                    <div class=\"input-group-append\">\n                        <div class=\"input-group-text\">\n                            <span class=\"fas fa-lock\"></span>\n                        </div>\n                    </div>\n                </div>\n                <div class=\"row\">\n                    <div class=\"col-8\">\n                        <div class=\"icheck-primary\">\n                            <input type=\"checkbox\" id=\"remember\">\n                            <label for=\"remember\">\n                                Remember Me\n                            </label>\n                        </div>\n                    </div>\n                    <!-- /.col -->\n                    <div class=\"col-4\">\n                        <button type=\"submit\" class=\"btn btn-primary btn-block\">Login</button>\n                    </div>\n                    <!-- /.col -->\n                </div>\n            </form>\n\n            <p class=\"mb-1\">\n                <a href=\"#\">I forgot my password</a>\n            </p>\n            <p class=\"mb-0\">\n                <a href=\"{{ url('auth/register') }}\" class=\"text-center\">Register</a>\n            </p>\n            <hr>\n            <p align=\"center\">CopyRight &copy; {{ date('Y') }} <br> SupportBy || SARPRAS APP</p>\n        </div>\n        <!-- /.card-body -->\n    </div>\n    <!-- /.card -->\n</div>\n<!-- /.login-box -->\n@endsection\n"
+        }
+    ]
+}

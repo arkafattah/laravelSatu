@@ -1,0 +1,18 @@
+{
+    "sourceFile": "app/Http/Controllers/Main/JabatanController.php",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 0,
+            "patches": [
+                {
+                    "date": 1705840370345,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                }
+            ],
+            "date": 1705840370345,
+            "name": "Commit-0",
+            "content": "<?php\n\nnamespace App\\Http\\Controllers\\Main;\n\nuse App\\Http\\Controllers\\Controller;\nuse App\\Models\\Jabatan;\nuse Illuminate\\Http\\Request;\n\nclass JabatanController extends Controller\n{\n    /**\n     * Display a listing of the resource.\n     */\n    public function index()\n    {\n\n        $data['title'] = 'Data Hak Akses';\n        $jabatan = Jabatan::all();\n        $data['result'] = $jabatan->sortDesc();\n        return view('main.jabatan.index', $data);\n    }\n\n    /**\n     * Show the form for creating a new resource.\n     */\n    public function create()\n    {\n\n        $data['title'] = \"Tambah Data Akses\";\n        return view(\"main.jabatan.create\", $data);\n    }\n\n    /**\n     * Store a newly created resource in storage.\n     */\n    public function store(Request $request)\n    {\n        $validasi = $this->validate(\n            $request,\n            [\n                'nama' => 'required',\n            ],\n            [\n                'nama.required' => 'hak akses tidak boleh kosong',\n            ]\n        );\n\n        Jabatan::create([\n            'nama' => $request->nama,\n        ]);\n\n        return redirect('main/jabatan')->with('success', 'Data berhasil disimpan!');\n    }\n\n    /**\n     * Display the specified resource.\n     */\n    public function show(string $id)\n    {\n        $row = Jabatan::findOrFail($id);\n        return view('main.jabatan.show', [\n            'title' => 'Detail Data Hak Akses',\n            'nama' => $row->nama,\n        ]);\n    }\n\n    /**\n     * Show the form for editing the specified resource.\n     */\n    public function edit(string $id)\n    {\n        $row = Jabatan::findOrFail($id);\n\n        return view('main.jabatan.edit', [\n            'title' => 'Edit Data Hak Akses',\n            'id' => $row->id,\n            'nama' => $row->nama,\n        ]);\n    }\n\n    /**\n     * Update the specified resource in storage.\n     */\n    public function update(Request $request, string $id)\n    {\n\n        $row = Jabatan::find($id);\n        if ($row) {\n            $row->nama = $request->nama;\n            // Simpan perubahan\n            $row->save();\n\n            return redirect('main/jabatan')->with('success', 'Data berhasil diubah');\n        }\n    }\n\n    /**\n     * Remove the specified resource from storage.\n     */\n    public function destroy(string $id)\n    {\n\n        $jabatan = Jabatan::findOrFail($id);\n        $jabatan->delete();\n        return back()->with('hapus', 'Data sudah di Hapus!');\n    }\n}\n"
+        }
+    ]
+}

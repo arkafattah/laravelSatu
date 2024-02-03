@@ -1,0 +1,30 @@
+{
+    "sourceFile": "database/migrations/2024_01_10_041407_create_lampu_ruangans_table.php",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 3,
+            "patches": [
+                {
+                    "date": 1704860184637,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1705112066941,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -15,9 +15,9 @@\n             $table->id();\n             $table->unsignedBigInteger('user_id');\n             $table->date('waktu');\n             $table->string('lokasi');\n-            $table->string('jumlah_lampu');\n+            $table->integer('jumlah_lampu');\n             $table->timestamps();\n \n             $table->foreign('user_id')->references('id')->on('users');\n         });\n"
+                },
+                {
+                    "date": 1705289666546,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -16,8 +16,9 @@\n             $table->unsignedBigInteger('user_id');\n             $table->date('waktu');\n             $table->string('lokasi');\n             $table->integer('jumlah_lampu');\n+            $table->integer('status');\n             $table->timestamps();\n \n             $table->foreign('user_id')->references('id')->on('users');\n         });\n"
+                },
+                {
+                    "date": 1705619732129,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -13,10 +13,10 @@\n     {\n         Schema::create('lampu_ruangans', function (Blueprint $table) {\n             $table->id();\n             $table->unsignedBigInteger('user_id');\n+            $table->string('keterangan');\n             $table->date('waktu');\n-            $table->string('lokasi');\n             $table->integer('jumlah_lampu');\n             $table->integer('status');\n             $table->timestamps();\n \n"
+                }
+            ],
+            "date": 1704860184637,
+            "name": "Commit-0",
+            "content": "<?php\n\nuse Illuminate\\Database\\Migrations\\Migration;\nuse Illuminate\\Database\\Schema\\Blueprint;\nuse Illuminate\\Support\\Facades\\Schema;\n\nreturn new class extends Migration\n{\n    /**\n     * Run the migrations.\n     */\n    public function up(): void\n    {\n        Schema::create('lampu_ruangans', function (Blueprint $table) {\n            $table->id();\n            $table->unsignedBigInteger('user_id');\n            $table->date('waktu');\n            $table->string('lokasi');\n            $table->string('jumlah_lampu');\n            $table->timestamps();\n\n            $table->foreign('user_id')->references('id')->on('users');\n        });\n    }\n\n    /**\n     * Reverse the migrations.\n     */\n    public function down(): void\n    {\n        Schema::dropIfExists('lampu_ruangans');\n    }\n};\n"
+        }
+    ]
+}

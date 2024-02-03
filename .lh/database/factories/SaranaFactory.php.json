@@ -1,0 +1,26 @@
+{
+    "sourceFile": "database/factories/SaranaFactory.php",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 2,
+            "patches": [
+                {
+                    "date": 1704800365367,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1704800380060,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -17,8 +17,8 @@\n     public function definition(): array\n     {\n         return [\n             'nama' => $this->faker->word,\n-            'sarana' => $this->faker->numberBetween(1, 50),\n+            'model' => $this->faker->numberBetween(1, 50),\n         ];\n     }\n }\n"
+                },
+                {
+                    "date": 1704800663568,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -17,8 +17,8 @@\n     public function definition(): array\n     {\n         return [\n             'nama' => $this->faker->word,\n-            'model' => $this->faker->numberBetween(1, 50),\n+            'model' => $this->faker->word,\n         ];\n     }\n }\n"
+                }
+            ],
+            "date": 1704800365367,
+            "name": "Commit-0",
+            "content": "<?php\n\nnamespace Database\\Factories;\n\nuse Illuminate\\Database\\Eloquent\\Factories\\Factory;\n\n/**\n * @extends \\Illuminate\\Database\\Eloquent\\Factories\\Factory<\\App\\Models\\Mobil>\n */\nclass SaranaFactory extends Factory\n{\n    /**\n     * Define the model's default state.\n     *\n     * @return array<string, mixed>\n     */\n    public function definition(): array\n    {\n        return [\n            'nama' => $this->faker->word,\n            'sarana' => $this->faker->numberBetween(1, 50),\n        ];\n    }\n}\n"
+        }
+    ]
+}

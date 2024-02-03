@@ -1,0 +1,18 @@
+{
+    "sourceFile": "database/factories/PengelolaSaranaFactory.php",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 0,
+            "patches": [
+                {
+                    "date": 1705544358691,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                }
+            ],
+            "date": 1705544358691,
+            "name": "Commit-0",
+            "content": "<?php\n\nnamespace Database\\Factories;\n\nuse Illuminate\\Database\\Eloquent\\Factories\\Factory;\n\n/**\n * @extends \\Illuminate\\Database\\Eloquent\\Factories\\Factory<\\App\\Models\\PengelolaSarana>\n */\nclass PengelolaSaranaFactory extends Factory\n{\n    /**\n     * Define the model's default state.\n     *\n     * @return array<string, mixed>\n     */\n    public function definition(): array\n    {\n        return [\n            'user_id' => 1,\n            'sarana_id' => 1,\n            'keterangan' => $this->faker->word,\n            'unit' => 'file.pdf',\n            'jumlah_unit' => $this->faker->numberBetween(1, 50),\n            'tanggal' => $this->faker->date,\n            'status' => $this->faker->randomElement(['pending', 'diterima', 'selesai', 'ditolak']),\n        ];\n    }\n}\n"
+        }
+    ]
+}

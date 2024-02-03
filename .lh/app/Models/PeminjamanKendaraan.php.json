@@ -1,0 +1,26 @@
+{
+    "sourceFile": "app/Models/PeminjamanKendaraan.php",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 2,
+            "patches": [
+                {
+                    "date": 1704814299151,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1704970979032,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -16,8 +16,9 @@\n         'tanggal_pinjam',\n         'jam_pinjam',\n         'tanggal_kembali',\n         'jam_kembali',\n+        'keterangan',\n         'status',\n     ];\n     public function users()\n     {\n"
+                },
+                {
+                    "date": 1705222882580,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -16,9 +16,8 @@\n         'tanggal_pinjam',\n         'jam_pinjam',\n         'tanggal_kembali',\n         'jam_kembali',\n-        'keterangan',\n         'status',\n     ];\n     public function users()\n     {\n"
+                }
+            ],
+            "date": 1704814299151,
+            "name": "Commit-0",
+            "content": "<?php\n\nnamespace App\\Models;\n\nuse Illuminate\\Database\\Eloquent\\Factories\\HasFactory;\nuse Illuminate\\Database\\Eloquent\\Model;\n\nclass PeminjamanKendaraan extends Model\n{\n    use HasFactory;\n\n    protected $fillable = [\n        'user_id',\n        'kendaraan_id',\n        'kegiatan',\n        'tanggal_pinjam',\n        'jam_pinjam',\n        'tanggal_kembali',\n        'jam_kembali',\n        'status',\n    ];\n    public function users()\n    {\n        return $this->belongsTo(User::class, 'user_id', 'id');\n    }\n    public function kendaraan()\n    {\n        return $this->belongsTo(Kendaraan::class, 'kendaraan_id', 'id');\n    }\n}\n"
+        }
+    ]
+}

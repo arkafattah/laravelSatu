@@ -1,0 +1,30 @@
+{
+    "sourceFile": "app/Models/Pegawai.php",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 3,
+            "patches": [
+                {
+                    "date": 1704805387517,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1704809288475,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -9,8 +9,12 @@\n {\n     use HasFactory;\n     protected $fillable = [\n         'nama',\n-        'pokja',\n+        'kelompok_id',\n         'nip',\n     ];\n+    public function kelompok()\n+    {\n+        return $this->belongsTo(Kelompok::class, 'kelompok_id', 'id');\n+    }\n }\n"
+                },
+                {
+                    "date": 1704809421765,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -9,12 +9,8 @@\n {\n     use HasFactory;\n     protected $fillable = [\n         'nama',\n-        'kelompok_id',\n+        'pokja',\n         'nip',\n     ];\n-    public function kelompok()\n-    {\n-        return $this->belongsTo(Kelompok::class, 'kelompok_id', 'id');\n-    }\n }\n"
+                },
+                {
+                    "date": 1705840579873,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,16 +1,1 @@\n-<?php\n \n-namespace App\\Models;\n-\n-use Illuminate\\Database\\Eloquent\\Factories\\HasFactory;\n-use Illuminate\\Database\\Eloquent\\Model;\n-\n-class Pegawai extends Model\n-{\n-    use HasFactory;\n-    protected $fillable = [\n-        'nama',\n-        'pokja',\n-        'nip',\n-    ];\n-}\n"
+                }
+            ],
+            "date": 1704805387517,
+            "name": "Commit-0",
+            "content": "<?php\n\nnamespace App\\Models;\n\nuse Illuminate\\Database\\Eloquent\\Factories\\HasFactory;\nuse Illuminate\\Database\\Eloquent\\Model;\n\nclass Pegawai extends Model\n{\n    use HasFactory;\n    protected $fillable = [\n        'nama',\n        'pokja',\n        'nip',\n    ];\n}\n"
+        }
+    ]
+}

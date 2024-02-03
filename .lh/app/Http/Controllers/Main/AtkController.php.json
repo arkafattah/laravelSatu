@@ -1,0 +1,70 @@
+{
+    "sourceFile": "app/Http/Controllers/Main/AtkController.php",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 13,
+            "patches": [
+                {
+                    "date": 1704791252315,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1705576047585,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -35,14 +35,16 @@\n     {\n         $validasi = $this->validate(\n             $request,\n             [\n-                'nama' => 'required',\n-                'stok' => 'required',\n+                'uraian' => 'required',\n+                'spesifikasi' => 'required',\n+                'satuan' => 'required',\n             ],\n             [\n-                'nama.required' => 'Nama produk tidak boleh kosong',\n-                'stok.required' => 'slug produk tidak boleh kosong',\n+                'uraian.required' => 'Uraian produk tidak boleh kosong',\n+                'spesifikasi.required' => 'Spesifikasi tidak boleh kosong',\n+                'satuan.required' => 'Satuan tidak boleh kosong',\n             ]\n         );\n \n         $produk = Atk::create([\n"
+                },
+                {
+                    "date": 1705576150011,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -47,10 +47,11 @@\n             ]\n         );\n \n         $produk = Atk::create([\n-            'nama' => $request->nama,\n-            'stok' => $request->stok, // Simpan gambar di direktori storage/app/public/images\n+            'uraian' => $request->uraian,\n+            'spesifikasi' => $request->spesifikasi,\n+            'satuan' => $request->satuan, // Simpan gambar di direktori storage/app/public/images\n         ]);\n \n         return redirect('main/atk')->with('success', 'Data berhasil disimpan!');\n     }\n@@ -62,10 +63,11 @@\n     {\n         $row = Atk::findOrFail($id);\n         return view('main.atk.show', [\n             'title' => 'Detail Data Atk',\n-            'nama' => $row->nama,\n-            'stok' => $row->stok,\n+            'uraian' => $row->uraian,\n+            'spesifikasi' => $row->spesifikasi,\n+            'satuan' => $row->satuan,\n         ]);\n     }\n \n     /**\n"
+                },
+                {
+                    "date": 1705576195172,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -80,10 +80,11 @@\n \n         return view('main.atk.edit', [\n             'title' => 'Edit Data Atk',\n             'id' => $row->id,\n-            'nama' => $row->nama,\n-            'stok' => $row->stok,\n+            'uraian' => $row->uraian,\n+            'spesifikasi' => $row->spesifikasi,\n+            'satuan' => $row->satuan,\n         ]);\n     }\n \n     /**\n"
+                },
+                {
+                    "date": 1705576267745,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -94,10 +94,11 @@\n     {\n         // Ambil data produk berdasarkan ID\n         $row = Atk::find($id);\n         if ($row) {\n-            $row->nama = $request->nama;\n-            $row->stok = $request->stok;\n+            $row->uraian = $request->uraian;\n+            $row->spesifikasi = $request->spesifikasi;\n+            $row->satuan = $request->satuan;\n \n \n             // Simpan perubahan\n             $row->save();\n@@ -110,9 +111,9 @@\n      * Remove the specified resource from storage.\n      */\n     public function destroy(string $id)\n     {\n-        $mobil = Atk::findOrFail($id);\n-        $mobil->delete();\n+        $atk = Atk::findOrFail($id);\n+        $atk->delete();\n         return back()->with('hapus', 'Data sudah di Hapus!');\n     }\n }\n"
+                },
+                {
+                    "date": 1705578026459,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -40,9 +40,9 @@\n                 'spesifikasi' => 'required',\n                 'satuan' => 'required',\n             ],\n             [\n-                'uraian.required' => 'Uraian produk tidak boleh kosong',\n+                'uraian.required' => 'Uraian tidak boleh kosong',\n                 'spesifikasi.required' => 'Spesifikasi tidak boleh kosong',\n                 'satuan.required' => 'Satuan tidak boleh kosong',\n             ]\n         );\n"
+                },
+                {
+                    "date": 1705578283072,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -49,9 +49,9 @@\n \n         $produk = Atk::create([\n             'uraian' => $request->uraian,\n             'spesifikasi' => $request->spesifikasi,\n-            'satuan' => $request->satuan, // Simpan gambar di direktori storage/app/public/images\n+            'satuan' => $request->satuan,\n         ]);\n \n         return redirect('main/atk')->with('success', 'Data berhasil disimpan!');\n     }\n"
+                },
+                {
+                    "date": 1705578372012,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -111,9 +111,9 @@\n      * Remove the specified resource from storage.\n      */\n     public function destroy(string $id)\n     {\n-        $atk = Atk::findOrFail($id);\n-        $atk->delete();\n+        $mobil = Atk::findOrFail($id);\n+        $mobil->delete();\n         return back()->with('hapus', 'Data sudah di Hapus!');\n     }\n }\n"
+                },
+                {
+                    "date": 1705578469467,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -46,9 +46,9 @@\n                 'satuan.required' => 'Satuan tidak boleh kosong',\n             ]\n         );\n \n-        $produk = Atk::create([\n+        Atk::create([\n             'uraian' => $request->uraian,\n             'spesifikasi' => $request->spesifikasi,\n             'satuan' => $request->satuan,\n         ]);\n"
+                },
+                {
+                    "date": 1705578505017,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -40,9 +40,9 @@\n                 'spesifikasi' => 'required',\n                 'satuan' => 'required',\n             ],\n             [\n-                'uraian.required' => 'Uraian tidak boleh kosong',\n+                'uraian.required' => 'uraian tidak boleh kosong',\n                 'spesifikasi.required' => 'Spesifikasi tidak boleh kosong',\n                 'satuan.required' => 'Satuan tidak boleh kosong',\n             ]\n         );\n"
+                },
+                {
+                    "date": 1705578674378,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -35,14 +35,12 @@\n     {\n         $validasi = $this->validate(\n             $request,\n             [\n-                'uraian' => 'required',\n                 'spesifikasi' => 'required',\n                 'satuan' => 'required',\n             ],\n             [\n-                'uraian.required' => 'uraian tidak boleh kosong',\n                 'spesifikasi.required' => 'Spesifikasi tidak boleh kosong',\n                 'satuan.required' => 'Satuan tidak boleh kosong',\n             ]\n         );\n"
+                },
+                {
+                    "date": 1705578733069,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -35,12 +35,14 @@\n     {\n         $validasi = $this->validate(\n             $request,\n             [\n+                'uraian' => 'required',\n                 'spesifikasi' => 'required',\n                 'satuan' => 'required',\n             ],\n             [\n+                'uraian.required' => 'Uraian tidak boleh kosong',\n                 'spesifikasi.required' => 'Spesifikasi tidak boleh kosong',\n                 'satuan.required' => 'Satuan tidak boleh kosong',\n             ]\n         );\n"
+                },
+                {
+                    "date": 1705842412378,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -12,9 +12,9 @@\n      * Display a listing of the resource.\n      */\n     public function index()\n     {\n-        $data['title'] = 'Data Atk';\n+        $data['title'] = 'Data Alat Tulis Kantor';\n         $user = Atk::all();\n         $data['result'] = $user->sortDesc();\n         return view('main.atk.index', $data);\n     }\n@@ -23,9 +23,9 @@\n      * Show the form for creating a new resource.\n      */\n     public function create()\n     {\n-        $data['title'] = \"Tambah Data Atk\";\n+        $data['title'] = \"Tambah Data Alat Tulis Kantor\";\n         return view(\"main.atk.create\", $data);\n     }\n \n     /**\n"
+                },
+                {
+                    "date": 1705842425905,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -78,9 +78,9 @@\n \n         $row = Atk::findOrFail($id);\n \n         return view('main.atk.edit', [\n-            'title' => 'Edit Data Atk',\n+            'title' => 'Edit Data Alat Tulis Kantor',\n             'id' => $row->id,\n             'uraian' => $row->uraian,\n             'spesifikasi' => $row->spesifikasi,\n             'satuan' => $row->satuan,\n"
+                }
+            ],
+            "date": 1704791252315,
+            "name": "Commit-0",
+            "content": "<?php\n\nnamespace App\\Http\\Controllers\\Main;\n\nuse App\\Http\\Controllers\\Controller;\nuse App\\Models\\Atk;\nuse Illuminate\\Http\\Request;\n\nclass AtkController extends Controller\n{\n    /**\n     * Display a listing of the resource.\n     */\n    public function index()\n    {\n        $data['title'] = 'Data Atk';\n        $user = Atk::all();\n        $data['result'] = $user->sortDesc();\n        return view('main.atk.index', $data);\n    }\n\n    /**\n     * Show the form for creating a new resource.\n     */\n    public function create()\n    {\n        $data['title'] = \"Tambah Data Atk\";\n        return view(\"main.atk.create\", $data);\n    }\n\n    /**\n     * Store a newly created resource in storage.\n     */\n    public function store(Request $request)\n    {\n        $validasi = $this->validate(\n            $request,\n            [\n                'nama' => 'required',\n                'stok' => 'required',\n            ],\n            [\n                'nama.required' => 'Nama produk tidak boleh kosong',\n                'stok.required' => 'slug produk tidak boleh kosong',\n            ]\n        );\n\n        $produk = Atk::create([\n            'nama' => $request->nama,\n            'stok' => $request->stok, // Simpan gambar di direktori storage/app/public/images\n        ]);\n\n        return redirect('main/atk')->with('success', 'Data berhasil disimpan!');\n    }\n\n    /**\n     * Display the specified resource.\n     */\n    public function show($id)\n    {\n        $row = Atk::findOrFail($id);\n        return view('main.atk.show', [\n            'title' => 'Detail Data Atk',\n            'nama' => $row->nama,\n            'stok' => $row->stok,\n        ]);\n    }\n\n    /**\n     * Show the form for editing the specified resource.\n     */\n    public function edit(Request $request, $id)\n    {\n\n        $row = Atk::findOrFail($id);\n\n        return view('main.atk.edit', [\n            'title' => 'Edit Data Atk',\n            'id' => $row->id,\n            'nama' => $row->nama,\n            'stok' => $row->stok,\n        ]);\n    }\n\n    /**\n     * Update the specified resource in storage.\n     */\n    public function update(Request $request, string $id)\n    {\n        // Ambil data produk berdasarkan ID\n        $row = Atk::find($id);\n        if ($row) {\n            $row->nama = $request->nama;\n            $row->stok = $request->stok;\n\n\n            // Simpan perubahan\n            $row->save();\n\n            return redirect('main/atk')->with('success', 'Data berhasil diubah');\n        }\n    }\n\n    /**\n     * Remove the specified resource from storage.\n     */\n    public function destroy(string $id)\n    {\n        $mobil = Atk::findOrFail($id);\n        $mobil->delete();\n        return back()->with('hapus', 'Data sudah di Hapus!');\n    }\n}\n"
+        }
+    ]
+}

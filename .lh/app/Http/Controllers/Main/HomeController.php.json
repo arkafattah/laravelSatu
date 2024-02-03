@@ -1,0 +1,18 @@
+{
+    "sourceFile": "app/Http/Controllers/Main/HomeController.php",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 0,
+            "patches": [
+                {
+                    "date": 1704813863110,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                }
+            ],
+            "date": 1704813863110,
+            "name": "Commit-0",
+            "content": "<?php\n\nnamespace App\\Http\\Controllers\\Main;\n\nuse App\\Http\\Controllers\\Controller;\nuse Illuminate\\Http\\Request;\n\nclass HomeController extends Controller\n{\n    function index()\n    {\n        // $data['userCount'] = User::count();\n        // $data['gejalaCount'] = Gejala::count();\n        // $data['penyakitCount'] = Penyakit::count();\n        // $data['pengetahuanCount'] = Pengetahuan::count();\n        $data['title'] = 'Dashboard';\n        return view('main.home.home', $data);\n    }\n}\n"
+        }
+    ]
+}

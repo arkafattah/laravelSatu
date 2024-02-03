@@ -1,0 +1,18 @@
+{
+    "sourceFile": "database/seeders/UserSeeder.php",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 0,
+            "patches": [
+                {
+                    "date": 1705759256723,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                }
+            ],
+            "date": 1705759256723,
+            "name": "Commit-0",
+            "content": "<?php\n\nnamespace Database\\Seeders;\n\nuse App\\Models\\User;\nuse Illuminate\\Database\\Console\\Seeds\\WithoutModelEvents;\nuse Illuminate\\Database\\Seeder;\nuse Illuminate\\Support\\Facades\\Hash;\nuse Symfony\\Component\\Uid\\NilUlid;\n\nclass UserSeeder extends Seeder\n{\n    /**\n     * Run the database seeds.\n     */\n    public function run(): void\n    {\n        User::create([\n            'jab_id' => 1, // Sesuaikan dengan jumlah jabatan yang Anda buat\n            'kelompok_id' => null,\n            'name' => 'admin',\n            'kode_pegawai' => '111',\n            'no_hp' => '089531941653',\n            'email' => 'admin@gmail.com',\n            'password' => Hash::make('password'),\n            'gender' => 'Laki-Laki',\n\n        ]);\n        User::create([\n            'jab_id' => 2, // Sesuaikan dengan jumlah jabatan yang Anda buat\n            'kelompok_id' => 1,\n            'name' => 'Verifikator',\n            'kode_pegawai' => '222',\n            'no_hp' => '089531941653',\n            'email' => 'verifikator@gmail.com',\n            'password' => Hash::make('password'),\n            'gender' => 'Laki-Laki',\n\n        ]);\n        User::create([\n            'jab_id' => 3, // Sesuaikan dengan jumlah jabatan yang Anda buat\n            'kelompok_id' => 1,\n            'name' => 'Validator',\n            'kode_pegawai' => '333',\n            'no_hp' => '089531941653',\n            'email' => 'validator@gmail.com',\n            'password' => Hash::make('password'),\n            'gender' => 'Laki-Laki',\n\n        ]);\n        User::create([\n            'jab_id' => 4, // Sesuaikan dengan jumlah jabatan yang Anda buat\n            'kelompok_id' => 1,\n            'name' => 'user',\n            'kode_pegawai' => '444',\n            'no_hp' => '089531941653',\n            'email' => 'user@gmail.com',\n            'password' => Hash::make('password'),\n            'gender' => 'Laki-Laki',\n\n        ]);\n    }\n}\n"
+        }
+    ]
+}

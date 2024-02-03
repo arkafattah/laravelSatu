@@ -1,0 +1,22 @@
+{
+    "sourceFile": "app/Http/Controllers/Main/Laporan/LaporanPengelolaanAtkController.php",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 1,
+            "patches": [
+                {
+                    "date": 1705123494707,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1705123580919,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -76,11 +76,11 @@\n         );\n         $tgl_a = $request->tgl_a;\n         $tgl_b = $request->tgl_b;\n \n-        $row = PengelolaanPersuratan::whereBetween(FacadesDB::raw(\"DATE_FORMAT(created_at,'%Y-%m-%d')\"), [$tgl_a, $tgl_b])->get();;\n-        return view('main.pengelolaan_persuratan.print', [\n-            'title' => 'Laporan Data Pengelolaan Persuratan',\n+        $row = PengelolaanAtk::whereBetween(FacadesDB::raw(\"DATE_FORMAT(created_at,'%Y-%m-%d')\"), [$tgl_a, $tgl_b])->get();;\n+        return view('main.pengelolaan_atk.print', [\n+            'title' => 'Laporan Data Pengelolaan Atk',\n             'result' => $row,\n             'tgl_a' => $tgl_a,\n             'tgl_b' => $tgl_b,\n         ]);\n"
+                }
+            ],
+            "date": 1705123494707,
+            "name": "Commit-0",
+            "content": "<?php\n\nnamespace App\\Http\\Controllers\\Main\\Laporan;\n\nuse App\\Http\\Controllers\\Controller;\nuse App\\Models\\Atk;\nuse App\\Models\\PengelolaanAtk;\nuse App\\Models\\User;\nuse Illuminate\\Http\\Request;\nuse Illuminate\\Support\\Facades\\DB as FacadesDB;\n\nclass LaporanPengelolaanAtkController extends Controller\n{\n    /**\n     * Display a listing of the resource.\n     */\n    public function index()\n    {\n        $data['title'] = 'Laporan Pengelolaan Atk';\n        $pengelolaan_atk = PengelolaanAtk::with('users', 'atk')->get();\n        $data['result'] = $pengelolaan_atk->sortDesc();\n        return view('main.pengelolaan_atk.laporan', $data);\n    }\n\n    /**\n     * Show the form for creating a new resource.\n     */\n    public function create()\n    {\n        //\n    }\n\n    /**\n     * Store a newly created resource in storage.\n     */\n    public function store(Request $request)\n    {\n        //\n    }\n\n    /**\n     * Display the specified resource.\n     */\n    public function show(string $id)\n    {\n        //\n    }\n    /**\n     * Show the form for editing the specified resource.\n     */\n    public function edit(string $id)\n    {\n\n        //\n    }\n\n    /**\n     * Update the specified resource in storage.\n     */\n    public function update(Request $request, string $id)\n    {\n        //\n    }\n    public function print(Request $request)\n    {\n        $validasi = $this->validate(\n            $request,\n            [\n                'tgl_a' => 'required',\n                'tgl_b' => 'required',\n            ],\n            [\n                'tgl_a.required' => 'tanggal tidak boleh kosong',\n                'tgl_b.required' => 'tanggal tidak boleh kosong',\n            ]\n        );\n        $tgl_a = $request->tgl_a;\n        $tgl_b = $request->tgl_b;\n\n        $row = PengelolaanPersuratan::whereBetween(FacadesDB::raw(\"DATE_FORMAT(created_at,'%Y-%m-%d')\"), [$tgl_a, $tgl_b])->get();;\n        return view('main.pengelolaan_persuratan.print', [\n            'title' => 'Laporan Data Pengelolaan Persuratan',\n            'result' => $row,\n            'tgl_a' => $tgl_a,\n            'tgl_b' => $tgl_b,\n        ]);\n    }\n\n\n    /**\n     * Remove the specified resource from storage.\n     */\n    public function destroy(string $id)\n    {\n\n        //\n    }\n}\n"
+        }
+    ]
+}
