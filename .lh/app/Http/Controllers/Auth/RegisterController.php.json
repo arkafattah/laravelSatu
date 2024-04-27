@@ -1,0 +1,18 @@
+{
+    "sourceFile": "app/Http/Controllers/Auth/RegisterController.php",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 0,
+            "patches": [
+                {
+                    "date": 1713950247175,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                }
+            ],
+            "date": 1713950247175,
+            "name": "Commit-0",
+            "content": "<?php\n\nnamespace App\\Http\\Controllers\\Auth;\n\nuse App\\Http\\Controllers\\Controller;\nuse Illuminate\\Http\\Request;\n\nuse App\\Models\\User;\n\n\nclass RegisterController extends Controller\n{\n    public function index()\n    {\n        return view(\"auth.register\");\n    }\n\n    function processRegister(Request $request)\n    {\n        $request->validate([\n            'email' => 'required|email',\n            'password' => 'required|min:6|confirmed',\n        ]);\n\n        $user = new User;\n        $user->name = $request->name;\n        $user->jab_id = $request->jab_id;\n        $user->username = $request->username;\n        $user->email = $request->email;\n        $user->password = bcrypt($request->password);\n        if ($user->save()) {\n            return redirect()->route('login')->with(\"success\", \"Register Success\");\n        } else {\n            return redirect()->back()->withInput()->withErrors(\"Something Error !\");\n        }\n    }\n}\n"
+        }
+    ]
+}

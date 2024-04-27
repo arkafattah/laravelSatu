@@ -1,0 +1,18 @@
+{
+    "sourceFile": "app/Models/JenisKebutuhan.php",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 0,
+            "patches": [
+                {
+                    "date": 1713950254891,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                }
+            ],
+            "date": 1713950254891,
+            "name": "Commit-0",
+            "content": "<?php\n\nnamespace App\\Models;\n\nuse Illuminate\\Database\\Eloquent\\Factories\\HasFactory;\nuse Illuminate\\Database\\Eloquent\\Model;\n\nclass JenisKebutuhan extends Model\n{\n    use HasFactory;\n    protected $fillable = [\n        'nama',\n    ];\n    public function barang()\n    {\n        return $this->hasMany(JenisKebutuhan::class, 'jenis_kebutuhan', 'id');\n    }\n}\n"
+        }
+    ]
+}

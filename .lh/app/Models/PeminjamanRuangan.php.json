@@ -1,0 +1,22 @@
+{
+    "sourceFile": "app/Models/PeminjamanRuangan.php",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 1,
+            "patches": [
+                {
+                    "date": 1713956895117,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1713958013676,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -14,8 +14,9 @@\n         'ruang_id',\n         'kegiatan',\n         'waktu',\n         'tanggal',\n+        'pengajuan',\n         'status',\n     ];\n     public function users()\n     {\n"
+                }
+            ],
+            "date": 1713956895117,
+            "name": "Commit-0",
+            "content": "<?php\n\nnamespace App\\Models;\n\nuse Illuminate\\Database\\Eloquent\\Factories\\HasFactory;\nuse Illuminate\\Database\\Eloquent\\Model;\n\nclass PeminjamanRuangan extends Model\n{\n    use HasFactory;\n\n    protected $fillable = [\n        'user_id',\n        'ruang_id',\n        'kegiatan',\n        'waktu',\n        'tanggal',\n        'status',\n    ];\n    public function users()\n    {\n        return $this->belongsTo(User::class, 'user_id', 'id');\n    }\n    public function ruang()\n    {\n        return $this->belongsTo(Ruang::class, 'ruang_id', 'id');\n    }\n}\n"
+        }
+    ]
+}
