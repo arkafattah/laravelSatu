@@ -3,7 +3,7 @@
     "activeCommit": 0,
     "commits": [
         {
-            "activePatchIndex": 3,
+            "activePatchIndex": 4,
             "patches": [
                 {
                     "date": 1704866136331,
@@ -20,6 +20,10 @@
                 {
                     "date": 1705395695813,
                     "content": "Index: \n===================================================================\n--- \n+++ \n@@ -18,9 +18,8 @@\n                                     <th>Nama</th>\n                                     <th>Jenis Surat</th>\n                                     <th>pegawai</th>\n                                     <th>keterangan</th>\n-                                    <th>lampiran</th>\n                                     <th>Tanggal</th>\n                                     <th>Status</th>\n                                 </tr>\n                             </thead>\n"
+                },
+                {
+                    "date": 1713954810548,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -34,10 +34,23 @@\n                                     <td>{{ $row->surat_id }}</td>\n                                     <td>{{ $row->pegawai }}</td>\n                                     <td>{{ $row->keterangan }}</td>\n                                     <td>{{ $row->tanggal }}</td>\n-                                    <td>{{ $row->status }}</td>\n+                                    <td> @if ($row->status == \"pending\")\n+                                        <span class=\"badge badge-warning\">pending</span>\n+                                        @endif\n+                                        @if ($row->status == \"diterima\")\n+                                        <span class=\"badge badge-primary\">diterima</span>\n+                                        @endif\n+                                        @if ($row->status == \"selesai\")\n+                                        <span class=\"badge badge-success\">selesai</span>\n+                                        @endif\n+                                        @if ($row->status == \"ditolak\")\n+                                        <span class=\"badge badge-danger\">ditolak</span>\n+                                        @endif\n \n+                                    </td>\n+\n                                 </tr>\n                                 @endforeach\n                         </table>\n                     </div>\n"
                 }
             ],
             "date": 1704866136331,

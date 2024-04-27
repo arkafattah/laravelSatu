@@ -3,7 +3,7 @@
     "activeCommit": 0,
     "commits": [
         {
-            "activePatchIndex": 5,
+            "activePatchIndex": 7,
             "patches": [
                 {
                     "date": 1704859725667,
@@ -28,6 +28,14 @@
                 {
                     "date": 1705620216900,
                     "content": "Index: \n===================================================================\n--- \n+++ \n@@ -48,10 +48,10 @@\n                             <thead>\n                                 <tr>\n                                     <th>No</th>\n                                     <th>Nama</th>\n+                                    <th>Keterangan</th>\n                                     <th>Tanggal</th>\n-                                    <th>Lokasi</th>\n                                     <th>Jumlah Lampu</th>\n                                     <th>Status</th>\n                                 </tr>\n                             </thead>\n@@ -62,10 +62,10 @@\n                                 @foreach ($result as $row)\n                                 <tr>\n                                     <td>{{ $urutan++ }}</td>\n                                     <td>{{ $row->users->name }}</td>\n+                                    <td>{{ $row->keterangan }}</td>\n                                     <td>{{ $row->waktu }}</td>\n-                                    <td>{{ $row->lokasi }}</td>\n                                     <td>{{ $row->jumlah_lampu }}</td>\n                                     <td>{{ $row->status }}</td>\n                                 </tr>\n                                 @endforeach\n"
+                },
+                {
+                    "date": 1713954943903,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -65,9 +65,22 @@\n                                     <td>{{ $row->users->name }}</td>\n                                     <td>{{ $row->keterangan }}</td>\n                                     <td>{{ $row->waktu }}</td>\n                                     <td>{{ $row->jumlah_lampu }}</td>\n-                                    <td>{{ $row->status }}</td>\n+                                    <td> @if ($row->status == \"pending\")\n+                                        <span class=\"badge badge-warning\">pending</span>\n+                                        @endif\n+                                        @if ($row->status == \"diterima\")\n+                                        <span class=\"badge badge-primary\">diterima</span>\n+                                        @endif\n+                                        @if ($row->status == \"selesai\")\n+                                        <span class=\"badge badge-success\">selesai</span>\n+                                        @endif\n+                                        @if ($row->status == \"ditolak\")\n+                                        <span class=\"badge badge-danger\">ditolak</span>\n+                                        @endif\n+\n+                                    </td>\n                                 </tr>\n                                 @endforeach\n                         </table>\n                     </div>\n"
+                },
+                {
+                    "date": 1714010524556,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -39,9 +39,9 @@\n                 @endif\n \n                 <div class=\"card\">\n                     <div class=\"card-header\">\n-                        <h3 class=\"card-title\">Data{{ $title }}</h3>\n+                        <h3 class=\"card-title\">Data {{ $title }}</h3>\n                     </div>\n                     <!-- /.card-header -->\n                     <div class=\"card-body\">\n                         <table id=\"example1\" class=\"table table-bordered table-striped\">\n"
                 }
             ],
             "date": 1704859725667,

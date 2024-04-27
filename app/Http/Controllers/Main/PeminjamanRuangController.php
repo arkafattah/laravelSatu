@@ -28,7 +28,7 @@ class PeminjamanRuangController extends Controller
     public function create()
     {
         $data['user'] = User::all();
-        $data['ruang'] = Ruang::where('status', 1)->get();
+        $data['ruang'] = Ruang::all();
         $data['peminjaman_ruang'] = PeminjamanRuang::all();
         $data['title'] = "Tambah Data Ruang";
         return view("main.peminjaman_ruang.create", $data);
@@ -72,8 +72,6 @@ class PeminjamanRuangController extends Controller
             'status' => $request->status,
         ]);
 
-        Ruang::where('id', $request->ruang_id)->update(['status' => 0]);
-
         return redirect('main/peminjaman_ruang')->with('success', 'Data berhasil disimpan!');
     }
 
@@ -115,10 +113,6 @@ class PeminjamanRuangController extends Controller
     {
         $row = PeminjamanRuang::find($id);
         if ($row) {
-            if ($row->ruang_id != $request->ruang_id) {
-                Ruang::where('id', $row->ruang_id)->update(['status' => 1]);
-                Ruang::where('id', $request->ruang_id)->update(['status' => 0]);
-            }
             $row->user_id = $request->user_id;
             $row->ruang_id = $request->ruang_id;
             $row->kegiatan = $request->kegiatan;
@@ -128,10 +122,6 @@ class PeminjamanRuangController extends Controller
             $row->status = $request->status;
 
             $row->save();
-            if ($row->status != 'pending')
-                if ($row->status != 'diterima') {
-                    Ruang::where('id', $request->ruang_id)->update(['status' => 1]);
-                }
 
             return redirect('main/peminjaman_ruang')->with('success', 'Data berhasil diubah');
         }
@@ -143,7 +133,7 @@ class PeminjamanRuangController extends Controller
     public function destroy(string $id)
     {
         $data = PeminjamanRuang::findOrFail($id);
-        Ruang::where('id', $data->ruang_id)->update(['status' => 1]);
+
         $data->delete();
         return back()->with('hapus', 'Data sudah di Hapus!');
     }

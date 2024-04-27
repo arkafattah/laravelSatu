@@ -3,11 +3,19 @@
     "activeCommit": 0,
     "commits": [
         {
-            "activePatchIndex": 0,
+            "activePatchIndex": 2,
             "patches": [
                 {
                     "date": 1704789325136,
                     "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1708907957598,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -9,7 +9,6 @@\n {\n     use HasFactory;\n     protected $fillable = [\n         'nama',\n-        'status',\n     ];\n }\n"
+                },
+                {
+                    "date": 1713853820917,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -9,6 +9,7 @@\n {\n     use HasFactory;\n     protected $fillable = [\n         'nama',\n+        'status',\n     ];\n }\n"
                 }
             ],
             "date": 1704789325136,

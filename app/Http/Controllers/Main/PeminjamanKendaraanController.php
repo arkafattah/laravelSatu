@@ -27,7 +27,7 @@ class PeminjamanKendaraanController extends Controller
     public function create()
     {
         $data['user'] = User::all();
-        $data['kendaraan'] = Kendaraan::where('status', 1)->get();
+        $data['kendaraan'] = Kendaraan::all();
         $data['peminjaman_kendaraan'] = PeminjamanKendaraan::all();
         $data['title'] = "Tambah Data Pengajuan Kendaraan";
         return view("main.peminjaman_kendaraan.create", $data);
@@ -74,8 +74,6 @@ class PeminjamanKendaraanController extends Controller
             'status' => $request->status,
         ]);
 
-        Kendaraan::where('id', $request->kendaraan_id)->update(['status' => 0]);
-
         return redirect('main/peminjaman_kendaraan')->with('success', 'Data berhasil disimpan!');
     }
 
@@ -119,10 +117,6 @@ class PeminjamanKendaraanController extends Controller
 
         $row = PeminjamanKendaraan::find($id);
         if ($row) {
-            if ($row->kendaraan_id != $request->kendaraan_id) {
-                Kendaraan::where('id', $row->kendaraan_id)->update(['status' => 1]);
-                Kendaraan::where('id', $request->kendaraan_id)->update(['status' => 0]);
-            }
             $row->user_id = $request->user_id;
             $row->kendaraan_id = $request->kendaraan_id;
             $row->kegiatan = $request->kegiatan;
@@ -133,10 +127,6 @@ class PeminjamanKendaraanController extends Controller
             $row->status = $request->status;
 
             $row->save();
-            if ($row->status != 'diterima')
-                if ($row->status != 'pending') {
-                    Kendaraan::where('id', $request->kendaraan_id)->update(['status' => 1]);
-                }
 
 
             return redirect('main/peminjaman_kendaraan')->with('success', 'Data berhasil diubah');
@@ -149,7 +139,7 @@ class PeminjamanKendaraanController extends Controller
     public function destroy(string $id)
     {
         $data = PeminjamanKendaraan::findOrFail($id);
-        Kendaraan::where('id', $data->kendaraan_id)->update(['status' => 1]);
+
         $data->delete();
         return back()->with('hapus', 'Data sudah di Hapus!');
     }

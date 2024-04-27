@@ -91,7 +91,7 @@
                     <a href="{{ url('#') }}" class="dropdown-item">
                         <!-- Message Start -->
                         <div class="media">
-                            <img src="{{ auth()->user()->picture }}" alt="User Avatar" class="img-size-50 mr-3 img-circle">
+                            <img src="{{ url('adminlte/dist/img/user2-160x160.jpg') }}" alt="User Avatar" class="img-size-50 mr-3 img-circle">
                             <div class="media-body">
                                 <h3 class="dropdown-item-title">
                                     {{ auth()->user()->name }}
@@ -124,9 +124,8 @@
     <aside class="main-sidebar sidebar-light-primary elevation-4">
         <!-- Brand Logo -->
         <a href="{{ url('#') }}" class="brand-link">
-            {{-- <img src="{{ url('naive-bayes.png') }}" alt="AdminLTE Logo"
-            class="brand-image img-circle elevation-3" style="opacity: .8"> --}}
-            <span class="brand-text font-weight-light">SATU LLDIKTI III</span>
+            <img src="{{ url('satu black.png') }}" alt="AdminLTE Logo" class="brand-image square-image">
+            <span class="brand-text bold-text" style="font-size: 10px;">LLDikti Wilayah III</span>
         </a>
 
         <!-- Sidebar -->
@@ -219,8 +218,8 @@
                     </li>
 
                     {{-- Proses Permohonan dan pengajuan dan peminjaman dan pembelian dan lainnya  --}}
-                    <li class="nav-item {{ Request::is('main/pengelolaan_persuratan*') || Request::is('main/pengelolaan_atk*') || Request::is('main/peminjaman_ruang*') || Request::is('main/peminjaman_kendaraan*') || Request::is('main/lampu_ruangan*') ? 'menu-open' : '' }}">
-                        <a href="#" class="nav-link {{ Request::is('main/pengelolaan_persuratan*') || Request::is('main/pengelolaan_atk*') || Request::is('main/peminjaman_ruang*') || Request::is('main/peminjaman_kendaraan*') || Request::is('main/lampu_ruangan*') ? 'active' : '' }}">
+                    <li class="nav-item {{ Request::is('main/pengelolaan_persuratan*') || Request::is('main/pengelolaan_atk*') || Request::is('main/peminjaman_ruang*') || Request::is('main/peminjaman_kendaraan*') || Request::is('main/lampu_ruangan*') || Request::is('main/pengelola_sarana*') || Request::is('main/permintaan_logistik*') || Request::is('main/pembelian_sarana*') || Request::is('main/kebersihan*') ? 'menu-open' : '' }}">
+                        <a href="#" class="nav-link {{ Request::is('main/pengelolaan_persuratan*') || Request::is('main/pengelolaan_atk*') || Request::is('main/peminjaman_ruang*') || Request::is('main/peminjaman_kendaraan*') || Request::is('main/lampu_ruangan*') || Request::is('main/pengelola_sarana*') || Request::is('main/permintaan_logistik*') || Request::is('main/pembelian_sarana*') || Request::is('main/kebersihan*') ? 'active' : '' }}">
                             <i class="nav-icon fas fa-spinner"></i>
                             <p>
                                 Proses Pengajuan
@@ -306,8 +305,8 @@
                     {{-- Proses Permohonan dan pengajuan dan peminjaman dan pembelian dan   --}}
 
                     {{-- Laporan per tanggal  --}}
-                    <li class="nav-item {{ Request::is('main/laporan/peminjaman_kendaraan*') || Request::is('main/laporan/peminjaman_ruang*') || Request::is('main/laporan/pengelolaan_persuratan*') || Request::is('main/laporan/lampu_ruangan*') ? 'menu-open' : '' }}">
-                        <a href="#" class="nav-link {{ Request::is('main/laporan/peminjaman_kendaraan*') || Request::is('main/laporan/peminjaman_ruang*') || Request::is('main/laporan/pengelolaan_persuratan*') || Request::is('main/laporan/lampu_ruangan*') ? 'active' : '' }}">
+                    <li class="nav-item {{ Request::is('main/laporan/peminjaman_kendaraan*') || Request::is('main/laporan/peminjaman_ruang*') || Request::is('main/laporan/pengelolaan_persuratan*') || Request::is('main/laporan/pengelolaan_atk*') || Request::is('main/laporan/kebersihan*') || Request::is('main/laporan/pengelola_sarana*') || Request::is('main/laporan/lampu_ruangan*') || Request::is('main/laporan/pembelian_sarana*') ? 'menu-open' : '' }}">
+                        <a href="#" class="nav-link {{ Request::is('main/laporan/peminjaman_kendaraan*') || Request::is('main/laporan/peminjaman_ruang*') || Request::is('main/laporan/pengelolaan_persuratan*') || Request::is('main/laporan/pengelolaan_atk*') || Request::is('main/laporan/kebersihan*') || Request::is('main/laporan/pengelola_sarana*') || Request::is('main/laporan/lampu_ruangan*') || Request::is('main/laporan/pembelian_sarana*') ? 'active' : '' }}">
                             <i class="nav-icon fas fa-file"></i>
                             <p>
                                 Laporan
@@ -317,7 +316,7 @@
                         <ul class="nav nav-treeview">
                             <li class="nav-item">
                                 <a href="{{ url('main/laporan/peminjaman_kendaraan') }}" class="nav-link {{ Request::is('main/laporan/peminjaman_kendaraan*') ? 'active' : '' }}">
-                                    <i class="far fa-circle nav-icon"></i>
+                                    <i class="fa fa-list-ul nav-icon"></i>
                                     <p>
                                         Rekap Pengajuan Kendaraan Mobil Dinas
                                     </p>
@@ -325,7 +324,7 @@
                             </li>
                             <li class="nav-item">
                                 <a href="{{ url('main/laporan/peminjaman_ruang') }}" class="nav-link {{ Request::is('main/laporan/peminjaman_ruang*') ? 'active' : '' }}">
-                                    <i class="far fa-circle nav-icon"></i>
+                                    <i class="fa fa-list-ul nav-icon"></i>
                                     <p>
                                         Rekap Pengajuan Ruang Rapat
                                     </p>
@@ -333,7 +332,7 @@
                             </li>
                             <li class="nav-item">
                                 <a href="{{ url('main/laporan/pengelolaan_persuratan') }}" class="nav-link {{ Request::is('main/laporan/pengelolaan_persuratan*') ? 'active' : '' }}">
-                                    <i class="far fa-circle nav-icon"></i>
+                                    <i class="fa fa-list-ul nav-icon"></i>
                                     <p>
                                         Rekap Pengelolaan Persuratan
                                     </p>
@@ -341,7 +340,7 @@
                             </li>
                             <li class="nav-item">
                                 <a href="{{ url('main/laporan/pengelolaan_atk') }}" class="nav-link {{ Request::is('main/laporan/pengelolaan_atk*') ? 'active' : '' }}">
-                                    <i class="far fa-circle nav-icon"></i>
+                                    <i class="fa fa-list-ul nav-icon"></i>
                                     <p>
                                         Rekap Pengelolaan Alat Tulis Kantor
                                     </p>
@@ -349,7 +348,7 @@
                             </li>
                             <li class="nav-item">
                                 <a href="{{ url('main/laporan/kebersihan') }}" class="nav-link {{ Request::is('main/laporan/kebersihan*') ? 'active' : '' }}">
-                                    <i class="far fa-circle nav-icon"></i>
+                                    <i class="fa fa-list-ul nav-icon"></i>
                                     <p>
                                         Rekap Pengelola Kebersihan
                                     </p>
@@ -357,7 +356,7 @@
                             </li>
                             <li class="nav-item">
                                 <a href="{{ url('main/laporan/pengelola_sarana') }}" class="nav-link {{ Request::is('main/laporan/pengelola_sarana*') ? 'active' : '' }}">
-                                    <i class="far fa-circle nav-icon"></i>
+                                    <i class="fa fa-list-ul nav-icon"></i>
                                     <p>
                                         Rekap Pemeliharaan Sarana
                                     </p>
@@ -365,15 +364,15 @@
                             </li>
                             <li class="nav-item">
                                 <a href="{{ url('main/laporan/lampu_ruangan') }}" class="nav-link {{ Request::is('main/laporan/lampu_ruangan*') ? 'active' : '' }}">
-                                    <i class="far fa-circle nav-icon"></i>
+                                    <i class="fa fa-list-ul nav-icon"></i>
                                     <p>
                                         Rekap Penggantian Lampu
                                     </p>
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a href="{{ url('main/laporan/pembelian_sarpras') }}" class="nav-link {{ Request::is('main/laporan/pembelian_sarpras*') ? 'active' : '' }}">
-                                    <i class="far fa-circle nav-icon"></i>
+                                <a href="{{ url('main/laporan/pembelian_sarana') }}" class="nav-link {{ Request::is('main/laporan/pembelian_sarana*') ? 'active' : '' }}">
+                                    <i class="fa fa-list-ul nav-icon"></i>
                                     <p>
                                         Rekap Pembelian Kebutuhan Sarana
                                     </p>

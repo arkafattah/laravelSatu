@@ -33,7 +33,20 @@
                                     <td>{{ $row->keluhan }}</td>
                                     <td>{{ $row->saran }}</td>
                                     <td>{{ $row->tanggal }}</td>
-                                    <td>{{ $row->status }}</td>
+                                    <td> @if ($row->status == "pending")
+                                        <span class="badge badge-warning">pending</span>
+                                        @endif
+                                        @if ($row->status == "diterima")
+                                        <span class="badge badge-primary">diterima</span>
+                                        @endif
+                                        @if ($row->status == "selesai")
+                                        <span class="badge badge-success">selesai</span>
+                                        @endif
+                                        @if ($row->status == "ditolak")
+                                        <span class="badge badge-danger">ditolak</span>
+                                        @endif
+
+                                    </td>
                                 </tr>
                                 @endforeach
                         </table>

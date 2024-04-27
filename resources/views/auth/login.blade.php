@@ -52,8 +52,11 @@
                     <!-- /.col -->
                 </div>
             </form>
+            <p class="mb-1">
+                <a href="#">Lupa Password</a>
+            </p>
             <p class="mb-0">
-                <a href="{{ url('auth/register') }}" class="text-center">Register</a>
+                <a href="{{ url('auth/register') }}" class="text-center">Sign Up</a>
             </p>
             <hr>
             <p align="center">CopyRight &copy; {{ date('Y') }} <br> SupportBy || SATU LLDikti Wilayah III</p>

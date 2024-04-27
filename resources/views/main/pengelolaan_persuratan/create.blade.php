@@ -39,11 +39,62 @@
                             </div>
                             <div class="form-group">
                                 <label for="exampleFormControlTextarea1">Pegawai</label>
-                                <select class="form-control select2" name="pegawai[]" style="inline-size:300px" multiple>
-                                    <option value="Yan Medya">Yan Medya</option>
-                                    <option value="Antony">Anthony</option>
-                                    <option value="Yuda">Yuda</option>
-                                    <option value="Nugroho">Nugroho</option>
+                                <select class="form-control select2" name="pegawai[]" multiple>
+                                    <option value="Prof. Dr. Toni Toharudin">Prof. Dr. Toni Toharudin</option>
+                                    <option value="Noviyanto">Noviyanto</option>
+                                    <option value="Yulianti AS">Yulianti AS</option>
+                                    <option value="Taufan Setyo Pranggono">Taufan Setyo Pranggono</option>
+                                    <option value="Agus Muhammad Ali">Agus Muhammad Ali</option>
+                                    <option value="Tri Munanto">Tri Munanto</option>
+                                    <option value="Prita Ekasari">Prita Ekasari</option>
+                                    <option value="Dhita Widya Putri">Dhita Widya Putri</option>
+                                    <option value="Lukman Hakim">Lukman Hakim</option>
+                                    <option value="Elih Ermawati">Elih Ermawati</option>
+                                    <option value="Regina Dwi Vania">Regina Dwi Vania</option>
+                                    <option value="Ikhsan Riyanda">Ikhsan Riyanda</option>
+                                    <option value="Titah Widihastuti">Titah Widihastuti</option>
+                                    <option value="Raafita Agustiana">Raafita Agustiana</option>
+                                    <option value="Mulhadi">Mulhadi</option>
+                                    <option value="Hidayat">Hidayat</option>
+                                    <option value="Herlina">Herlina</option>
+                                    <option value="Asri Fika Agusti">Asri Fika Agusti</option>
+                                    <option value="Afrida Anis">Afrida Anis</option>
+                                    <option value="Wiji Murdoko">Wiji Murdoko</option>
+                                    <option value="Ina Agustiani">Ina Agustiani</option>
+                                    <option value="Yudha Satria">Yudha Satria</option>
+                                    <option value="Yan Medya Putri">Yan Medya Putri</option>
+                                    <option value="Dian Rusdiana">Dian Rusdiana</option>
+                                    <option value="Felizia Novi Kristanti">Felizia Novi Kristanti</option>
+                                    <option value="Agung Permana N">Agung Permana N</option>
+                                    <option value="Fiqih Hidayah">Fiqih Hidayah</option>
+                                    <option value="Adhy Purnama">Adhy Purnama</option>
+                                    <option value="Virna Pradini Nazhar">Virna Pradini Nazhar</option>
+                                    <option value="Prima Satria">Prima Satria</option>
+                                    <option value="Maghfira Syalendri Alqadri">Maghfira Syalendri Alqadri</option>
+                                    <option value="Aprie Wellandira Suhardi">Aprie Wellandira Suhardi</option>
+                                    <option value="Naorah Putri Anggelia">Naorah Putri Anggelia</option>
+                                    <option value="Alfikri Mirza Rosadi">Alfikri Mirza Rosadi</option>
+                                    <option value="Yeni Handayani">Yeni Handayani</option>
+                                    <option value="Syarifudin">Syarifudin</option>
+                                    <option value="Nur Fadillah">Nur Fadillah</option>
+                                    <option value="Nurul Fajri">Nurul Fajri</option>
+                                    <option value="Finda Tyas Alfianti">Finda Tyas Alfianti</option>
+                                    <option value="Welfrid Phedra Sipahutar">Welfrid Phedra Sipahutar</option>
+                                    <option value="Risma Testir">Risma Testir</option>
+                                    <option value="Fita Pervita Sari">Fita Pervita Sari</option>
+                                    <option value="Ririh Diyah Pratista">Ririh Diyah Pratista</option>
+                                    <option value="Almadinda">Almadinda</option>
+                                    <option value="Maulani Yasintha">Maulani Yasintha</option>
+                                    <option value="Antonius Pantun Andika Manurung">Antonius Pantun Andika Manurung</option>
+                                    <option value="Tantri Rinjani">Tantri Rinjani</option>
+                                    <option value="Suratmi">Suratmi</option>
+                                    <option value="Endang Sutisna">Endang Sutisna</option>
+                                    <option value="Achmadi">Achmadi</option>
+                                    <option value="Irmi Asnita">Irmi Asnita</option>
+                                    <option value="Ahmad Mustaadi">Ahmad Mustaadi</option>
+                                    <option value="Suparman">Suparman</option>
+                                    <option value="Sukiyana">Sukiyana</option>
+                                    <option value="Reviva Rosmawati">Reviva Rosmawati</option>
                                 </select>
                             </div>
 

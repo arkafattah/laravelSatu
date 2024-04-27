@@ -74,7 +74,20 @@
                                     <td>{{ $row->barang->nama }}</td>
                                     <td>{{ $row->jumlah }}</td>
                                     <td>{{ $row->keterangan }}</td>
-                                    <td>{{ $row->status }}</td>
+                                    <td> @if ($row->status == "pending")
+                                        <span class="badge badge-warning">pending</span>
+                                        @endif
+                                        @if ($row->status == "diterima")
+                                        <span class="badge badge-primary">diterima</span>
+                                        @endif
+                                        @if ($row->status == "selesai")
+                                        <span class="badge badge-success">selesai</span>
+                                        @endif
+                                        @if ($row->status == "ditolak")
+                                        <span class="badge badge-danger">ditolak</span>
+                                        @endif
+
+                                    </td>
                                     @if (auth()->user()->jab_id == 1 || auth()->user()->jab_id == 2 || auth()->user()->jab_id == 3)
                                     <td>
                                         <a href="/main/pemeliharaan_sarpras/{{ $row->id }}" class="btn btn-primary btn-sm"><i class="fa fa-eye"></i></a>

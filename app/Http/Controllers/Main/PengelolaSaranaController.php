@@ -16,7 +16,7 @@ class PengelolaSaranaController extends Controller
      */
     public function index()
     {
-        $data['title'] = 'Data pengelola sarana';
+        $data['title'] = 'Data Pengelola Sarana';
         $user = PengelolaSarana::with('users', 'sarana')->get();
         $data['result'] = $user->sortDesc();
         return view('main.pengelola_sarana.index', $data);

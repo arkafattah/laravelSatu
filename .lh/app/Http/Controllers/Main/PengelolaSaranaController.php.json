@@ -3,7 +3,7 @@
     "activeCommit": 0,
     "commits": [
         {
-            "activePatchIndex": 12,
+            "activePatchIndex": 14,
             "patches": [
                 {
                     "date": 1705541984705,
@@ -56,6 +56,14 @@
                 {
                     "date": 1705985847414,
                     "content": "Index: \n===================================================================\n--- \n+++ \n@@ -15,23 +15,12 @@\n      * Display a listing of the resource.\n      */\n     public function index()\n     {\n-        if ($user = auth()->user()->jab_id == 4) {\n-            $user = auth()->user()->id;\n-            $data['title'] = 'Data pengelola sarana';\n-            $user = PengelolaSarana::with('users', 'sarana')\n-                ->where('user_id', $user)\n-                ->get();\n-            $data['result'] = $user->sortDesc();\n-            return view('main.pengelola_sarana.index', $data);\n-        } else {\n-            $data['title'] = 'Data pengajuan pengelola sarana';\n-            $user = PengelolaSarana::with('users', 'sarana')\n-                ->get();\n-            $data['result'] = $user->sortDesc();\n-            return view('main.pengelola_sarana.index', $data);\n-        }\n+        $data['title'] = 'Data pengelola sarana';\n+        $user = PengelolaSarana::with('users', 'sarana')->get();\n+        $data['result'] = $user->sortDesc();\n+        return view('main.pengelola_sarana.index', $data);\n     }\n \n     /**\n      * Show the form for creating a new resource.\n"
+                },
+                {
+                    "date": 1714010621805,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -15,9 +15,9 @@\n      * Display a listing of the resource.\n      */\n     public function index()\n     {\n-        $data['title'] = 'Data pengelola sarana';\n+        $data['title'] = 'Pengelola sarana';\n         $user = PengelolaSarana::with('users', 'sarana')->get();\n         $data['result'] = $user->sortDesc();\n         return view('main.pengelola_sarana.index', $data);\n     }\n"
+                },
+                {
+                    "date": 1714010703036,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -15,9 +15,9 @@\n      * Display a listing of the resource.\n      */\n     public function index()\n     {\n-        $data['title'] = 'Pengelola sarana';\n+        $data['title'] = 'Data Pengelola Sarana';\n         $user = PengelolaSarana::with('users', 'sarana')->get();\n         $data['result'] = $user->sortDesc();\n         return view('main.pengelola_sarana.index', $data);\n     }\n"
                 }
             ],
             "date": 1705541984705,

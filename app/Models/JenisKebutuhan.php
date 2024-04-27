@@ -13,6 +13,6 @@ class JenisKebutuhan extends Model
     ];
     public function barang()
     {
-        return $this->hasMany(PembelianSarpras::class, 'jenis_kebutuhan', 'id');
+        return $this->hasMany(JenisKebutuhan::class, 'jenis_kebutuhan', 'id');
     }
 }

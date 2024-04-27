@@ -3,7 +3,7 @@
     "activeCommit": 0,
     "commits": [
         {
-            "activePatchIndex": 1,
+            "activePatchIndex": 4,
             "patches": [
                 {
                     "date": 1705539701971,
@@ -12,6 +12,18 @@
                 {
                     "date": 1705539795067,
                     "content": "Index: \n===================================================================\n--- \n+++ \n@@ -85,9 +85,9 @@\n <!-- Modal -->\n <div class=\"modal fade\" id=\"exampleModal\" tabindex=\"-1\" role=\"dialog\" aria-labelledby=\"exampleModalLabel\" aria-hidden=\"true\">\n     <div class=\"modal-dialog\" role=\"document\">\n         <div class=\"modal-content\">\n-            <form action=\"{{ route('peminjaman_kendaraan.print') }}\" method=\"POST\" enctype=\"multipart/form-data\">\n+            <form action=\"{{ route('kebersihan.print') }}\" method=\"POST\" enctype=\"multipart/form-data\">\n                 @csrf\n                 <div class=\"modal-header\">\n                     <h5 class=\"modal-title\" id=\"exampleModalLabel\">Cetak Data</h5>\n                     <button type=\"button\" class=\"close\" data-dismiss=\"modal\" aria-label=\"Close\">\n"
+                },
+                {
+                    "date": 1713954977604,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -65,10 +65,23 @@\n                                     <td>{{ $row->users->name }}</td>\n                                     <td>{{ $row->keluhan }}</td>\n                                     <td>{{ $row->saran }}</td>\n                                     <td>{{ $row->tanggal }}</td>\n-                                    <td>{{ $row->status }}</td>\n+                                    <td> @if ($row->status == \"pending\")\n+                                        <span class=\"badge badge-warning\">pending</span>\n+                                        @endif\n+                                        @if ($row->status == \"diterima\")\n+                                        <span class=\"badge badge-primary\">diterima</span>\n+                                        @endif\n+                                        @if ($row->status == \"selesai\")\n+                                        <span class=\"badge badge-success\">selesai</span>\n+                                        @endif\n+                                        @if ($row->status == \"ditolak\")\n+                                        <span class=\"badge badge-danger\">ditolak</span>\n+                                        @endif\n \n+                                    </td>\n+\n                                 </tr>\n                                 @endforeach\n                         </table>\n                     </div>\n"
+                },
+                {
+                    "date": 1714010379526,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -39,9 +39,9 @@\n                 @endif\n \n                 <div class=\"card\">\n                     <div class=\"card-header\">\n-                        <h3 class=\"card-title\">DataTable {{ $title }}</h3>\n+                        <h3 class=\"card-title\">Data{{ $title }}</h3>\n                     </div>\n                     <!-- /.card-header -->\n                     <div class=\"card-body\">\n                         <table id=\"example1\" class=\"table table-bordered table-striped\">\n"
+                },
+                {
+                    "date": 1714010531506,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -39,9 +39,9 @@\n                 @endif\n \n                 <div class=\"card\">\n                     <div class=\"card-header\">\n-                        <h3 class=\"card-title\">Data{{ $title }}</h3>\n+                        <h3 class=\"card-title\">Data {{ $title }}</h3>\n                     </div>\n                     <!-- /.card-header -->\n                     <div class=\"card-body\">\n                         <table id=\"example1\" class=\"table table-bordered table-striped\">\n"
                 }
             ],
             "date": 1705539701971,

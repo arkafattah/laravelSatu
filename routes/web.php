@@ -13,7 +13,6 @@ use App\Http\Controllers\Main\LogistikController;
 use App\Http\Controllers\Main\JenisKebutuhanController;
 use App\Http\Controllers\Main\KelompokController;
 use App\Http\Controllers\Main\Laporan\PemeliharaanSarprasController;
-use App\Http\Controllers\Main\Laporan\LaporanPembelianSaranaController;
 use App\Http\Controllers\Main\PembelianSarprasController;
 use App\Http\Controllers\Main\PeminjamanMobilController;
 use App\Http\Controllers\Main\PersediaanLogistikController;
@@ -39,6 +38,7 @@ use App\Http\Controllers\Main\Laporan\LaporanKebersihanController;
 use App\Http\Controllers\Main\KebersihanController;
 use App\Http\Controllers\Main\Laporan\LaporanPengelolaSaranaController;
 use App\Http\Controllers\Main\PengelolaSaranaController;
+use App\Http\Controllers\Main\Laporan\LaporanPembelianSaranaController;
 use App\Http\Controllers\Main\PembelianSaranaController;
 
 
@@ -154,6 +154,9 @@ Route::prefix('main')->middleware('auth')->group(function () {
     Route::resource('laporan/pengelola_sarana', LaporanPengelolaSaranaController::class);
     // Pengajuan Pengelolaan Atk
     Route::resource('pengelola_sarana', PengelolaSaranaController::class);
+    // Laporan Pembelian Sarana
+    Route::post('laporan/pembelian_sarana/print', [LaporanPembelianSaranaController::class, 'print'])->name('pembelian_sarana.print');
+    Route::resource('laporan/pembelian_sarana', LaporanPembelianSaranaController::class);
     // Pengajuan Pembelian Sarana
     Route::resource('pembelian_sarana', PembelianSaranaController::class);
 });

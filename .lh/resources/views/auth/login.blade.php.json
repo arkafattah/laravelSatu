@@ -3,7 +3,7 @@
     "activeCommit": 0,
     "commits": [
         {
-            "activePatchIndex": 7,
+            "activePatchIndex": 9,
             "patches": [
                 {
                     "date": 1704954560640,
@@ -36,6 +36,14 @@
                 {
                     "date": 1706521312812,
                     "content": "Index: \n===================================================================\n--- \n+++ \n@@ -40,9 +40,9 @@\n                     <div class=\"col-8\">\n                         <div class=\"icheck-primary\">\n                             <input type=\"checkbox\" id=\"remember\">\n                             <label for=\"remember\">\n-                                Remember Me\n+                                Ingatkan Saya\n                             </label>\n                         </div>\n                     </div>\n                     <!-- /.col -->\n"
+                },
+                {
+                    "date": 1709465528182,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -51,11 +51,8 @@\n                     </div>\n                     <!-- /.col -->\n                 </div>\n             </form>\n-            <p class=\"mb-0\">\n-                <a href=\"{{ url('auth/register') }}\" class=\"text-center\">Register</a>\n-            </p>\n             <hr>\n             <p align=\"center\">CopyRight &copy; {{ date('Y') }} <br> SupportBy || SATU LLDikti Wilayah III</p>\n         </div>\n         <!-- /.card-body -->\n"
+                },
+                {
+                    "date": 1713953675488,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -51,8 +51,14 @@\n                     </div>\n                     <!-- /.col -->\n                 </div>\n             </form>\n+            <p class=\"mb-1\">\n+                <a href=\"#\">Lupa Password</a>\n+            </p>\n+            <p class=\"mb-0\">\n+                <a href=\"{{ url('auth/register') }}\" class=\"text-center\">Sign Up</a>\n+            </p>\n             <hr>\n             <p align=\"center\">CopyRight &copy; {{ date('Y') }} <br> SupportBy || SATU LLDikti Wilayah III</p>\n         </div>\n         <!-- /.card-body -->\n"
                 }
             ],
             "date": 1704954560640,

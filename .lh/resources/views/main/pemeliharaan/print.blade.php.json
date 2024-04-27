@@ -3,11 +3,15 @@
     "activeCommit": 0,
     "commits": [
         {
-            "activePatchIndex": 0,
+            "activePatchIndex": 1,
             "patches": [
                 {
                     "date": 1704855145597,
                     "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1713955027667,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -32,9 +32,22 @@\n                                     <td>{{ $user_id }}</td>\n                                     <td>{{ $row->barang->nama }}</td>\n                                     <td>{{ $row->jumlah }}</td>\n                                     <td>{{ $row->keterangan }}</td>\n-                                    <td>{{ $row->status }}</td>\n+                                    <td> @if ($row->status == \"pending\")\n+                                        <span class=\"badge badge-warning\">pending</span>\n+                                        @endif\n+                                        @if ($row->status == \"diterima\")\n+                                        <span class=\"badge badge-primary\">diterima</span>\n+                                        @endif\n+                                        @if ($row->status == \"selesai\")\n+                                        <span class=\"badge badge-success\">selesai</span>\n+                                        @endif\n+                                        @if ($row->status == \"ditolak\")\n+                                        <span class=\"badge badge-danger\">ditolak</span>\n+                                        @endif\n+\n+                                    </td>\n                                 </tr>\n                                 @endforeach\n                         </table>\n                     </div>\n"
                 }
             ],
             "date": 1704855145597,

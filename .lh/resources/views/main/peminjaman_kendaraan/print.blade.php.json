@@ -3,7 +3,7 @@
     "activeCommit": 0,
     "commits": [
         {
-            "activePatchIndex": 1,
+            "activePatchIndex": 2,
             "patches": [
                 {
                     "date": 1704973542753,
@@ -12,6 +12,10 @@
                 {
                     "date": 1704976018242,
                     "content": "Index: \n===================================================================\n--- \n+++ \n@@ -21,9 +21,8 @@\n                                     <th>Tanggal Pinjam</th>\n                                     <th>Jam Pinjam</th>\n                                     <th>Tanggal Kembali</th>\n                                     <th>Jam Kembali</th>\n-                                    <th>Keterangan</th>\n                                     <th>Status</th>\n                                 </tr>\n                             </thead>\n                             <tbody>\n@@ -39,9 +38,8 @@\n                                     <td>{{ $row->tanggal_pinjam }}</td>\n                                     <td>{{ $row->jam_pinjam }}</td>\n                                     <td>{{ $row->tanggal_kembali }}</td>\n                                     <td>{{ $row->jam_kembali }}</td>\n-                                    <td>{{ $row->keterangan }}</td>\n                                     <td>{{ $row->status }}</td>\n                                 </tr>\n                                 @endforeach\n                         </table>\n"
+                },
+                {
+                    "date": 1713955067703,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -38,9 +38,22 @@\n                                     <td>{{ $row->tanggal_pinjam }}</td>\n                                     <td>{{ $row->jam_pinjam }}</td>\n                                     <td>{{ $row->tanggal_kembali }}</td>\n                                     <td>{{ $row->jam_kembali }}</td>\n-                                    <td>{{ $row->status }}</td>\n+                                    <td> @if ($row->status == \"pending\")\n+                                        <span class=\"badge badge-warning\">pending</span>\n+                                        @endif\n+                                        @if ($row->status == \"diterima\")\n+                                        <span class=\"badge badge-primary\">diterima</span>\n+                                        @endif\n+                                        @if ($row->status == \"selesai\")\n+                                        <span class=\"badge badge-success\">selesai</span>\n+                                        @endif\n+                                        @if ($row->status == \"ditolak\")\n+                                        <span class=\"badge badge-danger\">ditolak</span>\n+                                        @endif\n+\n+                                    </td>\n                                 </tr>\n                                 @endforeach\n                         </table>\n                     </div>\n"
                 }
             ],
             "date": 1704973542753,
